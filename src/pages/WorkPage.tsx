@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageTransition } from '../components/PageTransition';
 import { experienceData } from '../data/experienceData';
+import { ongoingProjectsData } from '../data/ongoingProjectsData';
 import type { ExperienceCategory } from '../types/portfolio';
 import {
   Briefcase,
@@ -283,6 +284,66 @@ export const WorkPage: React.FC = () => {
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Ongoing Projects Section */}
+          <div className="mt-24 pt-16 border-t border-white/10">
+            <div className="max-w-4xl mb-12">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="w-6 h-[1.5px] bg-[#D9383A]" />
+                <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
+                  ACTIVE COMMISSIONS // PRACTICE PIPELINE
+                </span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F5F3] uppercase tracking-tight">
+                <span className="text-[#D9383A] inline-block">O</span>
+                <span>NGOING PROJECTS.</span>
+              </h2>
+
+              <p className="mt-4 text-base sm:text-lg text-[#CDD0D8] font-light max-w-2xl leading-relaxed">
+                Active architectural commissions, land development layouts, and infrastructure proposals currently in progress.
+              </p>
+            </div>
+
+            {/* 6 Ongoing Projects Editorial Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {ongoingProjectsData.map((project, index) => (
+                <motion.div
+                  key={project.number}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="group p-6 sm:p-8 bg-[#111319]/80 border border-white/8 hover:border-[#D9383A]/50 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+                >
+                  {/* Subtle top corner accent */}
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#D9383A]/5 rounded-bl-full group-hover:bg-[#D9383A]/10 transition-colors" />
+
+                  <div>
+                    {/* Index & Status Row */}
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="font-mono text-xs text-[#D9383A] tracking-widest font-semibold">
+                        /{project.number}
+                      </span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 bg-[#171A24] text-[#9AA0AC] border border-white/5 uppercase">
+                        {project.tag}
+                      </span>
+                    </div>
+
+                    {/* Project Title */}
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#F5F5F3] group-hover:text-[#D9383A] transition-colors leading-snug">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  {/* Bottom Indicator */}
+                  <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#9AA0AC]">
+                    <span className="text-[11px] tracking-wider uppercase text-[#626776]">Current Practice</span>
+                    <span className="text-[#D9383A] group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Quick Link to Dedicated Gallery Page */}

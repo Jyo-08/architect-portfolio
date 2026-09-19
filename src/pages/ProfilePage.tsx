@@ -1,9 +1,10 @@
 import React from 'react';
 import { PageTransition } from '../components/PageTransition';
+import { ProfileEditorial } from '../components/ProfileEditorial';
 import { Landmark, GraduationCap, Map, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export const AboutPage: React.FC = () => {
+export const ProfilePage: React.FC = () => {
   const pillars = [
     {
       icon: GraduationCap,
@@ -31,8 +32,9 @@ export const AboutPage: React.FC = () => {
     <PageTransition>
       <div className="min-h-screen bg-[#090A0D] pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Header: First Letter A in Red */}
-          <div className="flex flex-col mb-12 pb-8 border-b border-white/10">
+          
+          {/* Landing Screen */}
+          <div className="relative mb-12 pb-8 border-b border-white/10">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -41,29 +43,33 @@ export const AboutPage: React.FC = () => {
             >
               <span className="w-6 h-[1.5px] bg-[#D9383A]" />
               <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
-                CHAPTER 03 // ABOUT &amp; BIOGRAPHY
+                CHAPTER 06 // MONOGRAPH PROFILE
               </span>
             </motion.div>
 
+            {/* Large Landing Heading: First Letter P in Red */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#F5F5F3] leading-[1.05] uppercase tracking-tight"
+              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#F5F5F3] uppercase leading-[1.05]"
             >
-              <span className="text-[#D9383A] inline-block">A</span>
-              <span>BOUT.</span>
+              <span className="text-[#D9383A] inline-block">P</span>
+              <span>ROFILE</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] max-w-3xl font-light leading-relaxed"
+              className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] font-light max-w-3xl leading-relaxed"
             >
-              An architectural practice rooted in planning, education &amp; two decades of leadership.
+              Ar. Nenmeli Jayaraman — Principal Architect, City Planner &amp; Academic Consultant.
             </motion.p>
           </div>
+
+          {/* Editorial Feature Image: quotes.jpeg with "Design. Build. Sustain." */}
+          <ProfileEditorial />
 
           {/* Editorial 2-Column Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-8">

@@ -17,20 +17,38 @@ export const CredentialsPage: React.FC = () => {
     <PageTransition>
       <div className="min-h-screen bg-[#0B0D12] pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="flex flex-col mb-16">
-            <div className="inline-flex items-center gap-2 mb-4">
+          {/* Header: First Letter C in Red */}
+          <div className="flex flex-col mb-16 pb-8 border-b border-white/10">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 mb-4"
+            >
               <span className="w-6 h-[1.5px] bg-[#D9383A]" />
-              <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase">
+              <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
                 CHAPTER 04 // CREDENTIALS &amp; GOVERNANCE
               </span>
-            </div>
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-[#F5F5F3] leading-tight max-w-4xl uppercase">
-              Academic Qualifications &amp; Statutory Registrations
-            </h1>
-            <p className="mt-4 text-[#9AA0AC] max-w-2xl text-base sm:text-lg font-light">
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#F5F5F3] leading-[1.05] uppercase tracking-tight max-w-5xl"
+            >
+              <span className="text-[#D9383A] inline-block">C</span>
+              <span>REDENTIALS.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] max-w-3xl font-light"
+            >
               Verified degrees from premier national institutions, statutory council licensures, and pedagogical honors.
-            </p>
+            </motion.p>
           </div>
 
           {/* 2-Column Grid */}

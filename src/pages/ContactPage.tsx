@@ -41,20 +41,38 @@ export const ContactPage: React.FC = () => {
     <PageTransition>
       <div className="min-h-screen bg-[#090A0D] pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="max-w-3xl mb-16">
-            <div className="inline-flex items-center gap-2 mb-4">
+          {/* Header: First Letter C in Red */}
+          <div className="max-w-4xl mb-16 pb-8 border-b border-white/10">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 mb-4"
+            >
               <span className="w-6 h-[1.5px] bg-[#D9383A]" />
-              <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase">
-                CHAPTER 05 // CONTACT &amp; CONSULTATION
+              <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
+                CHAPTER 07 // CONTACT &amp; CONSULTATION
               </span>
-            </div>
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-[#F5F5F3] leading-tight uppercase">
-              Initiate Professional Dialogue
-            </h1>
-            <p className="mt-4 text-[#9AA0AC] text-base sm:text-lg font-light leading-relaxed">
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#F5F5F3] leading-[1.05] uppercase tracking-tight"
+            >
+              <span className="text-[#D9383A] inline-block">C</span>
+              <span>ONTACT.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] font-light leading-relaxed max-w-3xl"
+            >
               Available for statutory city master planning advisory, port development consultancy, architectural commissions, academic lectures, and property valuation.
-            </p>
+            </motion.p>
           </div>
 
           {/* 2-Column Content Grid */}
@@ -236,7 +254,7 @@ export const ContactPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="pt-2 border-t border-white/5 flex items-start gap-2">
-                    <Mail className="w-3.5 h-3.5 text-[#D9383A] shrink-0 mt-0.5" />
+                    <Mail className="w-3.5 h-3.5 text-[#D9383A]" />
                     <div>
                       <strong className="text-[#F5F5F3] block mb-0.5">Professional Email:</strong>
                       <a href="mailto:jnmidas@gmail.com" className="text-[#E2C799] hover:underline font-mono">
@@ -245,7 +263,7 @@ export const ContactPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="pt-2 border-t border-white/5 flex items-start gap-2">
-                    <Phone className="w-3.5 h-3.5 text-[#D9383A] shrink-0 mt-0.5" />
+                    <Phone className="w-3.5 h-3.5 text-[#D9383A]" />
                     <div>
                       <strong className="text-[#F5F5F3] block mb-0.5">Contact Line:</strong>
                       <span className="font-mono text-[#CDD0D8]">+91 94432 26706 / +91 86108 74516</span>

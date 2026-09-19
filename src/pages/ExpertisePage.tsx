@@ -40,21 +40,39 @@ export const ExpertisePage: React.FC = () => {
     <PageTransition>
       <div className="min-h-screen bg-[#0B0D12] pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          {/* Landing Header: First Letter E in Red */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 pb-8 border-b border-white/10">
             <div>
-              <div className="inline-flex items-center gap-2 mb-4">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 mb-4"
+              >
                 <span className="w-6 h-[1.5px] bg-[#D9383A]" />
-                <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase">
+                <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
                   CHAPTER 02 // EXPERTISE &amp; DISCIPLINES
                 </span>
-              </div>
-              <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-[#F5F5F3] leading-tight uppercase">
-                Areas of Expertise
-              </h1>
-              <p className="mt-4 text-[#9AA0AC] max-w-2xl text-base sm:text-lg font-light">
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#F5F5F3] leading-[1.05] uppercase tracking-tight"
+              >
+                <span className="text-[#D9383A] inline-block">E</span>
+                <span>XPERTISE.</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] max-w-2xl font-light"
+              >
                 Documented fields across statutory city planning consultancy, GIS master planning, private practice, and architectural teaching curricula.
-              </p>
+              </motion.p>
             </div>
 
             {/* Category Filter Pills */}

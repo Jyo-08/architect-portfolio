@@ -44,16 +44,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
     };
   }, [mobileMenuOpen]);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
   const navLinks = [
-    { label: 'PROFILE', href: '/profile' },
     { label: 'WORK', href: '/work' },
     { label: 'EXPERTISE', href: '/expertise' },
+    { label: 'ABOUT', href: '/about' },
     { label: 'CREDENTIALS', href: '/credentials' },
+    { label: 'GALLERY', href: '/gallery' },
+    { label: 'PROFILE', href: '/profile' },
     { label: 'CONTACT', href: '/contact' },
   ];
 
@@ -70,6 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
           {/* Brand Logo */}
           <Link
             to="/"
+            onClick={() => setMobileMenuOpen(false)}
             className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
           >
             <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.2em] text-[#F5F5F3] group-hover:text-[#F5F5F3] transition-colors flex items-center">
@@ -81,9 +79,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-7 lg:space-x-8">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.href || (link.href === '/profile' && location.pathname === '/about');
+              const isActive = location.pathname === link.href;
               return (
                 <Link
                   key={link.href}
@@ -109,7 +107,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             {/* Quick Inquire Action Button */}
             <button
               onClick={onOpenInquiry}
-              className="ml-4 px-4 py-2 border border-[#D9383A]/60 text-[#F5F5F3] hover:bg-[#D9383A] hover:text-[#F5F5F3] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9383A]"
+              className="ml-2 px-4 py-2 border border-[#D9383A]/60 text-[#F5F5F3] hover:bg-[#D9383A] hover:text-[#F5F5F3] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9383A]"
             >
               <span>INQUIRE</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#D9383A] group-hover:text-[#F5F5F3]" />
@@ -144,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-30 bg-[#090A0D]/98 backdrop-blur-2xl pt-28 px-8 flex flex-col md:hidden"
+            className="fixed inset-0 z-30 bg-[#090A0D]/98 backdrop-blur-2xl pt-28 px-8 flex flex-col md:hidden overflow-y-auto"
           >
             <div className="border-b border-white/10 pb-4 mb-8 flex items-center justify-between">
               <span className="text-xs font-mono text-[#D9383A] tracking-[0.25em] uppercase">
@@ -156,6 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             <div className="flex flex-col space-y-4">
               <Link
                 to="/"
+                onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-white/5 transition-colors ${
                   location.pathname === '/' ? 'text-[#D9383A]' : 'text-[#F5F5F3] hover:text-[#D9383A]'
                 }`}
@@ -164,11 +163,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                 <span className="text-xs font-mono text-[#626776]">00</span>
               </Link>
               {navLinks.map((link, idx) => {
-                const isActive = location.pathname === link.href || (link.href === '/profile' && location.pathname === '/about');
+                const isActive = location.pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-white/5 transition-colors ${
                       isActive ? 'text-[#D9383A]' : 'text-[#F5F5F3] hover:text-[#D9383A]'
                     }`}

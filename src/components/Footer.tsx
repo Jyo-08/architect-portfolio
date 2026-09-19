@@ -107,18 +107,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/profile" className="hover:text-[#F5F5F3] transition-colors">
-                  02 // PROFILE &amp; MONOGRAPH
-                </Link>
-              </li>
-              <li>
                 <Link to="/work" className="hover:text-[#F5F5F3] transition-colors">
-                  03 // SELECTED WORK &amp; TIMELINE
+                  02 // SELECTED WORK &amp; TIMELINE
                 </Link>
               </li>
               <li>
                 <Link to="/expertise" className="hover:text-[#F5F5F3] transition-colors">
-                  04 // EXPERTISE DOMAINS
+                  03 // EXPERTISE DOMAINS
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-[#F5F5F3] transition-colors">
+                  04 // ABOUT &amp; BIOGRAPHY
                 </Link>
               </li>
               <li>
@@ -127,8 +127,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
                 </Link>
               </li>
               <li>
+                <Link to="/gallery" className="hover:text-[#F5F5F3] transition-colors">
+                  06 // DEDICATED GALLERY
+                </Link>
+              </li>
+              <li>
+                <Link to="/profile" className="hover:text-[#F5F5F3] transition-colors">
+                  07 // PROFILE &amp; MONOGRAPH
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="hover:text-[#F5F5F3] transition-colors">
-                  06 // CONTACT &amp; ENQUIRY
+                  08 // CONTACT &amp; ENQUIRY
                 </Link>
               </li>
             </ul>

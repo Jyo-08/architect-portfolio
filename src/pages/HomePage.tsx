@@ -10,7 +10,8 @@ import {
   Layers,
   Briefcase,
   ShieldCheck,
-  Building2
+  Building2,
+  Image
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -44,7 +45,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
       subtitle: 'IIT Kharagpur (MCP) Heritage & Leadership',
       path: '/about',
       icon: Building2,
-      badge: 'Profile & Philosophy'
+      badge: 'Academic & Governance'
     },
     {
       num: '04',
@@ -56,11 +57,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
     },
     {
       num: '05',
-      title: 'Direct Enquiry & Contact',
-      subtitle: 'Advisory, Master Planning & Design Consultation',
-      path: '/contact',
-      icon: Compass,
-      badge: 'Professional Engagement'
+      title: 'Dedicated Gallery',
+      subtitle: 'Visual Archive & Technical Drawings',
+      path: '/gallery',
+      icon: Image,
+      badge: 'Photographic Archive'
+    },
+    {
+      num: '06',
+      title: 'Profile & Ethos',
+      subtitle: '"Design. Build. Sustain." & Practice Monograph',
+      path: '/profile',
+      icon: Building2,
+      badge: 'Editorial Portrait'
     }
   ];
 
@@ -114,19 +123,31 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
               </span>
             </motion.div>
 
-            {/* Oversized Editorial Headline with Red "A" */}
+            {/* Oversized Editorial Headline:
+                A in ARCHITECTURE = RED
+                T in CITY = RED
+                P in PLANNING = RED
+                All remaining letters = Normal */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#F5F5F3] leading-[1.05] uppercase"
+              aria-label="Architecture & City Planning."
             >
               <span className="block">
                 <span className="text-[#D9383A] inline-block hover:scale-105 transition-transform duration-300">A</span>
                 <span>RCHITECTURE</span>
               </span>
-              <span className="block text-[#9AA0AC]">&amp; CITY</span>
-              <span className="block text-[#F5F5F3]">PLANNING.</span>
+              <span className="block text-[#9AA0AC]">
+                <span>&amp; CI</span>
+                <span className="text-[#D9383A] inline-block">T</span>
+                <span>Y</span>
+              </span>
+              <span className="block text-[#F5F5F3]">
+                <span className="text-[#D9383A] inline-block">P</span>
+                <span>LANNING.</span>
+              </span>
             </motion.h1>
 
             {/* Supporting Statement */}
@@ -202,7 +223,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
             </p>
           </div>
 
-          {/* 5 Architectural Route Cards */}
+          {/* 6 Architectural Route Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {previewCards.map((card) => {
               const Icon = card.icon;

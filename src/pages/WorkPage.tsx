@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PageTransition } from '../components/PageTransition';
 import { experienceData } from '../data/experienceData';
 import type { ExperienceCategory } from '../types/portfolio';
@@ -11,7 +12,9 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  FileText
+  FileText,
+  ArrowRight,
+  Image as ImageIcon
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -60,21 +63,39 @@ export const WorkPage: React.FC = () => {
     <PageTransition>
       <div className="min-h-screen bg-[#090A0D] pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Page Eyebrow & Main Editorial Heading */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+          {/* Page Eyebrow & Main Editorial Heading: First Letter W in Red */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8 pb-8 border-b border-white/10">
             <div>
-              <div className="inline-flex items-center gap-2 mb-4">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 mb-4"
+              >
                 <span className="w-6 h-[1.5px] bg-[#D9383A]" />
-                <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase">
+                <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
                   CHAPTER 01 // SELECTED WORK &amp; TIMELINE
                 </span>
-              </div>
-              <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-[#F5F5F3] leading-tight uppercase">
-                Professional Experience
-              </h1>
-              <p className="mt-4 text-[#9AA0AC] max-w-2xl text-base sm:text-lg font-light">
+              </motion.div>
+              
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#F5F5F3] leading-[1.05] uppercase tracking-tight"
+              >
+                <span className="text-[#D9383A] inline-block">W</span>
+                <span>ORK.</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] max-w-2xl font-light"
+              >
                 Two decades of documented leadership spanning statutory city master planning, institutional governance, and architectural practice.
-              </p>
+              </motion.p>
             </div>
 
             {/* Timeline Category Filters */}
@@ -263,6 +284,32 @@ export const WorkPage: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Quick Link to Dedicated Gallery Page */}
+          <div className="mt-20 p-8 border border-white/10 bg-[#111319] flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#171A24] border border-white/10 flex items-center justify-center text-[#D9383A]">
+                <ImageIcon className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-xs font-mono text-[#D9383A] tracking-widest uppercase block">
+                  PHOTOGRAPHIC ARCHIVE
+                </span>
+                <h3 className="font-serif text-xl font-bold text-[#F5F5F3]">
+                  Explore Dedicated Visual Gallery
+                </h3>
+              </div>
+            </div>
+
+            <Link
+              to="/gallery"
+              className="px-6 py-3.5 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F5F5F3] font-mono text-xs tracking-widest uppercase font-semibold flex items-center gap-2 transition-colors shadow-lg shadow-[#D9383A]/20"
+            >
+              <span>View Full Gallery</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
         </div>
       </div>
     </PageTransition>

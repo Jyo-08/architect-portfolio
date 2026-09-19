@@ -11,6 +11,8 @@ import { WorkPage } from './pages/WorkPage';
 import { ExpertisePage } from './pages/ExpertisePage';
 import { AboutPage } from './pages/AboutPage';
 import { CredentialsPage } from './pages/CredentialsPage';
+import { GalleryPage } from './pages/GalleryPage';
+import { ProfilePage } from './pages/ProfilePage';
 import { ContactPage } from './pages/ContactPage';
 
 function AnimatedRoutes({ onOpenInquiry }: { onOpenInquiry: () => void }) {
@@ -20,11 +22,12 @@ function AnimatedRoutes({ onOpenInquiry }: { onOpenInquiry: () => void }) {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage onOpenInquiry={onOpenInquiry} />} />
-        <Route path="/profile" element={<AboutPage />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/expertise" element={<ExpertisePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/credentials" element={<CredentialsPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<HomePage onOpenInquiry={onOpenInquiry} />} />
       </Routes>

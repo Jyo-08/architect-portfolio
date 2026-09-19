@@ -26,7 +26,7 @@ export const PortfolioGallery: React.FC = () => {
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-6 h-[1.5px] bg-[#D9383A]" />
             <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
-              V4 PORTFOLIO GALLERY // PHOTOGRAPHIC ARCHIVE
+              PORTFOLIO GALLERY // PHOTOGRAPHIC ARCHIVE
             </span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F5F3] uppercase tracking-tight">
@@ -62,23 +62,13 @@ export const PortfolioGallery: React.FC = () => {
         </div>
       </div>
 
-      {/* Asymmetric Editorial / Masonry-Style Gallery Grid */}
+      {/* 3 Columns Layout Grid */}
       <motion.div
         layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 items-start"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start"
       >
         <AnimatePresence mode="popLayout">
           {filteredImages.map((img, index) => {
-            // Determine asymmetric grid span based on image type / feature
-            let colSpan = 'lg:col-span-4';
-            if (img.aspect === 'large' || img.feature) {
-              colSpan = 'lg:col-span-8';
-            } else if (img.aspect === 'wide') {
-              colSpan = 'lg:col-span-6';
-            } else if (img.aspect === 'tall') {
-              colSpan = 'lg:col-span-4';
-            }
-
             return (
               <motion.div
                 key={img.id}
@@ -86,22 +76,22 @@ export const PortfolioGallery: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: index * 0.04 }}
-                className={`${colSpan} group cursor-pointer`}
+                transition={{ duration: 0.4, delay: index * 0.03 }}
+                className="group cursor-pointer flex flex-col"
                 onClick={() => setLightboxIndex(index)}
               >
-                <div className="relative overflow-hidden bg-[#111319] border border-white/10 hover:border-[#D9383A]/70 transition-all duration-500 shadow-xl">
-                  {/* Image Container with preserved natural aspect */}
-                  <div className="relative w-full overflow-hidden bg-[#090A0D]">
+                <div className="relative overflow-hidden bg-[#111319] border border-white/10 group-hover:border-[#D9383A]/70 transition-all duration-500 shadow-xl flex flex-col h-full">
+                  {/* Stable Aspect Ratio Container */}
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#090A0D] flex items-center justify-center">
                     <img
                       src={img.src}
-                      alt={`${img.categoryLabel} — ${img.filename}`}
+                      alt={`${img.title} — ${img.categoryLabel}`}
                       loading="lazy"
-                      className="w-full h-auto max-h-[580px] object-cover object-center group-hover:scale-103 transition-transform duration-700 brightness-95 group-hover:brightness-105"
+                      className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-700 brightness-95 group-hover:brightness-105"
                     />
 
-                    {/* Subtle Dark Vignette & Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5">
                       <div className="self-end">
                         <span className="p-2 bg-[#090A0D]/80 text-[#D9383A] border border-white/15 flex items-center justify-center">
                           <Eye className="w-4 h-4" />
@@ -111,21 +101,26 @@ export const PortfolioGallery: React.FC = () => {
                         <span className="text-[10px] font-mono tracking-widest text-[#D9383A] uppercase block">
                           {img.category}
                         </span>
-                        <h4 className="font-serif text-base text-[#F5F5F3] font-medium mt-1">
-                          {img.filename}
+                        <h4 className="font-serif text-base text-[#F5F5F3] font-medium mt-0.5">
+                          {img.title}
                         </h4>
                       </div>
                     </div>
                   </div>
 
                   {/* Caption Strip */}
-                  <div className="p-4 bg-[#111319]/90 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-                    <span className="text-[#9AA0AC] text-[11px] truncate pr-2">
-                      {img.categoryLabel}
-                    </span>
-                    <span className="text-[#626776] text-[10px] shrink-0 uppercase">
-                      /{String(index + 1).padStart(2, '0')}
-                    </span>
+                  <div className="p-4 bg-[#111319]/95 border-t border-white/5 flex flex-col justify-between flex-grow">
+                    <div className="flex items-center justify-between text-xs font-mono mb-1">
+                      <span className="text-[#D9383A] text-[10px] tracking-widest uppercase font-semibold">
+                        {img.categoryLabel}
+                      </span>
+                      <span className="text-[#626776] text-[10px] uppercase">
+                        /{String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <h4 className="font-serif text-sm font-semibold text-[#F5F5F3] group-hover:text-[#D9383A] transition-colors">
+                      {img.title}
+                    </h4>
                   </div>
                 </div>
               </motion.div>
@@ -140,7 +135,7 @@ export const PortfolioGallery: React.FC = () => {
           <Layers className="w-3.5 h-3.5 text-[#D9383A]" />
           <span>DISPLAYING {filteredImages.length} OF {galleryImages.length} PORTFOLIO ARCHIVES</span>
         </div>
-        <span>CLICK ANY ARTIFACT FOR FULLSCREEN LIGHTBOX</span>
+        <span>CLICK ANY IMAGE FOR FULLSCREEN LIGHTBOX</span>
       </div>
 
       {/* Fullscreen Lightbox Viewer */}

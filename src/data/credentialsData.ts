@@ -6,20 +6,26 @@ export const educationData: EducationItem[] = [
     institution: 'Indian Institute of Technology (IIT) Kharagpur',
     year: '1999',
     gradeScore: 'CGPA 7.99',
-    details: 'Advanced specialization in regional planning, urban infrastructure systems, land use modeling, GIS applications, and urban policy formulation.'
+    details: 'Specialization in regional city master planning, urban infrastructure, land use zoning, GIS, and development regulations.'
   },
   {
     degree: 'Bachelor Degree in Architecture (B.Arch)',
-    institution: 'Bharat Institute of Science & Technology (BIST), University of Madras',
+    institution: 'Bharat Institute of Science & Technology, University of Madras',
     year: '1998',
     gradeScore: '67.7%',
-    details: 'Five-year professional degree in architectural design, structural engineering, history of architecture, building construction, and urban design.'
+    details: 'Five-year professional degree in architectural design, structural engineering, building technology, and construction management.'
+  },
+  {
+    degree: 'Bachelor of Laws (LLB)',
+    institution: 'University Degree in Law',
+    year: 'Professional Degree',
+    details: 'Legal foundation covering statutory urban development bylaws, land regulations, arbitration, and property valuation.'
   },
   {
     degree: 'Graduate Aptitude Test in Engineering (GATE)',
     institution: 'National Coordination Board / IITs',
     year: '1998',
-    details: 'All-India qualified examination in Architecture & Planning, securing national fellowship for postgraduate study at IIT Kharagpur.'
+    details: 'All-India qualified in Architecture & Planning, securing national fellowship for postgraduate study at IIT Kharagpur.'
   }
 ];
 

@@ -129,9 +129,12 @@ export const ProfileEditorial: React.FC = () => {
               </div>
 
               {/* Architectural Credentials Badge Pill */}
-              <div className="mt-5 flex flex-wrap items-center gap-3 text-[11px] font-mono text-[#9AA0AC]">
+              <div className="mt-5 flex flex-wrap items-center gap-2.5 text-[11px] font-mono text-[#9AA0AC]">
                 <span className="px-2.5 py-1 bg-[#171A24]/90 border border-white/10 text-[#F5F5F3]">
                   IIT Kharagpur (MCP &apos;99)
+                </span>
+                <span className="px-2.5 py-1 bg-[#171A24]/90 border border-white/10 text-[#F5F5F3]">
+                  B.Arch • LLB
                 </span>
                 <span className="px-2.5 py-1 bg-[#171A24]/90 border border-white/10 text-[#F5F5F3]">
                   COA: CA / 98 / 24015

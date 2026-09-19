@@ -16,10 +16,10 @@ import {
 import { motion } from 'framer-motion';
 
 interface HomePageProps {
-  onOpenInquiry: () => void;
+  onOpenInquiry?: () => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
+export const HomePage: React.FC<HomePageProps> = () => {
   const [imgLoaded, setImgLoaded] = useState(false);
 
   const previewCards = [
@@ -82,14 +82,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
           <img
             src="/images/hero-architecture.jpg"
             alt="Monolithic architectural concrete pavilion with evening lighting and reflection pool"
-            className={`w-full h-full object-cover object-center transition-opacity duration-1000 scale-105 ${
-              imgLoaded ? 'opacity-35' : 'opacity-0'
-            }`}
+            className={`w-full h-full object-cover object-center transition-opacity duration-1000 scale-105 ${imgLoaded ? 'opacity-35' : 'opacity-0'
+              }`}
             onLoad={() => setImgLoaded(true)}
           />
           {/* Subtle grid pattern background */}
           <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none" />
-          
+
           {/* Cinematic Vignette & Gradients */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D] via-[#090A0D]/70 to-[#090A0D]/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#090A0D]/90 via-transparent to-[#090A0D]/80" />
@@ -121,11 +120,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
               <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
                 ARCHITECTURE / CITY PLANNING / EDUCATION
               </span>
-            </motion.div>
-
-            {/* Oversized Editorial Headline:
+            </motion.div>            {/* Oversized Editorial Headline:
                 A in ARCHITECTURE = RED
-                T in CITY = RED
+                Y in CITY = RED
                 P in PLANNING = RED
                 All remaining letters = Normal */}
             <motion.h1
@@ -137,20 +134,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
             >
               <span className="block">
                 <span className="text-[#D9383A] inline-block hover:scale-105 transition-transform duration-300">A</span>
-                <span>RCHITECTURE</span>
+                <span className="text-[#F5F5F3]">RCHITECTURE</span>
               </span>
-              <span className="block text-[#9AA0AC]">
-                <span>&amp; CI</span>
-                <span className="text-[#D9383A] inline-block">T</span>
-                <span>Y</span>
+              <span className="block">
+                <span className="text-[#9AA0AC] mr-2 sm:mr-3">&amp;</span>
+                <span className="text-[#F5F5F3]">CIT</span>
+                <span className="text-[#D9383A] inline-block">Y</span>
               </span>
-              <span className="block text-[#F5F5F3]">
+              <span className="block">
                 <span className="text-[#D9383A] inline-block">P</span>
-                <span>LANNING.</span>
+                <span className="text-[#F5F5F3]">LANNING</span>
               </span>
             </motion.h1>
 
-            {/* Supporting Statement */}
+            {/* Supporting Statement - Minimal & Punchy */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -158,21 +155,21 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
               className="mt-8 pt-6 border-t border-white/15 max-w-2xl"
             >
               <p className="text-base sm:text-lg lg:text-xl text-[#CDD0D8] font-light leading-relaxed">
-                Architecture, city planning, and education shaped by experience, research, and a commitment to the built environment.
+                Architecture, statutory city planning, and education shaped by two decades of professional practice.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-mono text-[#9AA0AC]">
                 <span className="flex items-center gap-1.5">
                   <Compass className="w-3.5 h-3.5 text-[#D9383A]" />
-                  Statutory Master Planning &amp; GIS
+                  Statutory City Master Planning &amp; GIS
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Award className="w-3.5 h-3.5 text-[#D9383A]" />
-                  Academic Leadership &amp; Pedagogy
+                  IIT Kharagpur (MCP &apos;99)
                 </span>
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-[#D9383A]" />
-                  Tamil Nadu &amp; National Projects
+                  Sri Janaki &amp; Associates
                 </span>
               </div>
             </motion.div>
@@ -186,7 +183,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
               PRACTICE &amp; CONSULTANCY
             </span>
             <span className="text-sm font-serif text-[#F5F5F3] font-medium tracking-wide">
-              Ar. Nenmeli Jayaraman, MCP (IIT-KGP), B.Arch, COA, ITPI, IIA
+              Ar. Nenmeli Jayaraman, MCP (IIT-KGP), B.Arch, LLB, COA, ITPI, IIA
             </span>
           </div>
 
@@ -194,8 +191,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
             href="#monograph-directory"
             className="group flex items-center gap-3 text-xs font-mono text-[#9AA0AC] hover:text-[#F5F5F3] transition-colors focus:outline-none"
           >
-            <span className="tracking-[0.2em] uppercase text-[11px]">EXPLORE MONOGRAPH</span>
-            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#D9383A] group-hover:text-[#D9383A] transition-all">
+            <span className="tracking-[0.2em] uppercase text-[11px]">EXPLORE PORTFOLIO</span>
+            <div className="w-8 h-8 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#D9383A] group-hover:text-[#D9383A] transition-all">
               <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
             </div>
           </a>
@@ -203,15 +200,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
       </section>
 
       {/* Monograph Section Index & Direct Previews */}
-      <section id="monograph-directory" className="relative py-28 bg-[#0B0D12] border-t border-white/10">
+      <section id="monograph-directory" className="relative py-24 bg-[#0B0D12] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Section Heading */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="w-6 h-[1.5px] bg-[#D9383A]" />
                 <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase">
-                  MONOGRAPH SECTIONS
+                  MONOGRAPH CHAPTERS
                 </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F5F3] uppercase">
@@ -219,7 +216,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
               </h2>
             </div>
             <p className="text-sm text-[#9AA0AC] max-w-md font-light">
-              Navigate directly into specific portfolio chapters detailing master planning projects, academic research, and verified credentials.
+              Visual portfolio chapters detailing statutory planning, architectural design, academic research, and verified credentials.
             </p>
           </div>
 
@@ -267,28 +264,28 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
               );
             })}
 
-            {/* Inquire CTA Card */}
-            <div
-              onClick={onOpenInquiry}
-              className="group cursor-pointer p-8 bg-[#161822] border border-[#D9383A]/40 hover:border-[#D9383A] transition-all duration-300 flex flex-col justify-between"
+            {/* Direct Contact & Consultation Card */}
+            <Link
+              to="/contact"
+              className="group p-8 bg-[#161822] border border-[#D9383A]/40 hover:border-[#D9383A] transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <span className="font-mono text-xs text-[#D9383A] font-semibold tracking-widest block mb-4">
-                  /CONNECT
+                  /07
                 </span>
                 <h3 className="font-serif text-xl font-bold text-[#F5F5F3] mb-2">
-                  Initiate Consultation
+                  Contact &amp; Consultation
                 </h3>
                 <p className="text-xs sm:text-sm text-[#CDD0D8] font-light leading-relaxed">
-                  Engage for statutory master planning advisory, institutional academic lectures, or architectural project consultations.
+                  Engage Ar. Nenmeli Jayaraman for master planning advisory, architectural design, academic lectures, or valuation.
                 </p>
               </div>
 
               <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#D9383A] font-semibold">
-                <span className="tracking-wider uppercase text-[11px]">OPEN INQUIRY FORM</span>
+                <span className="tracking-wider uppercase text-[11px]">OPEN CONTACT PAGE</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

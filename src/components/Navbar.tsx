@@ -59,23 +59,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#090A0D]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-2xl'
-            : 'bg-gradient-to-b from-[#090A0D]/90 via-[#090A0D]/50 to-transparent py-6'
+            ? 'bg-[#090A0D]/95 backdrop-blur-md border-b border-white/10 py-3.5 shadow-2xl'
+            : 'bg-gradient-to-b from-[#090A0D]/90 via-[#090A0D]/50 to-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          {/* Brand Logo */}
+          {/* Brand Logo with Official Identity Logo */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+            className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
           >
-            <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.2em] text-[#F5F5F3] group-hover:text-[#F5F5F3] transition-colors flex items-center">
-              <span className="text-[#D9383A] inline-block mr-0.5">AR.</span> N. JAYARAMAN
-            </span>
-            <span className="text-[10px] tracking-[0.25em] text-[#9AA0AC] uppercase font-mono mt-0.5 group-hover:text-[#CDD0D8] transition-colors">
-              Architect &amp; City Planner
-            </span>
+            <img
+              src="/images/official_logo.png"
+              alt="Ar. Nenmeli Jayaraman Official Practice Logo — Creator of Your Dreams"
+              className="w-8 h-8 sm:w-9 sm:h-9 object-contain group-hover:scale-105 transition-transform duration-300 shrink-0"
+            />
+            <div className="flex flex-col">
+              <span className="font-serif text-base sm:text-lg lg:text-xl font-bold tracking-[0.18em] text-[#F5F5F3] group-hover:text-[#F5F5F3] transition-colors flex items-center">
+                <span className="text-[#D9383A] inline-block mr-0.5">AR.</span> N. JAYARAMAN
+              </span>
+              <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-[#9AA0AC] uppercase font-mono group-hover:text-[#CDD0D8] transition-colors">
+                Architect &amp; City Planner
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

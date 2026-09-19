@@ -4,10 +4,9 @@ export interface GalleryImage {
   id: string;
   category: 'PROJECTS' | 'INTERIORS' | 'COLLEGE' | 'SITE INSPECTION';
   src: string;
-  filename: string;
+  title: string;
   categoryLabel: string;
-  aspect?: 'tall' | 'wide' | 'square' | 'large';
-  feature?: boolean;
+  caption: string;
 }
 
 export const galleryCategories: { id: GalleryCategory; label: string }[] = [
@@ -23,139 +22,135 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'proj-residential-house-drawing',
     category: 'PROJECTS',
-    categoryLabel: 'Projects // Technical Drawing',
-    src: '/assets/portfolio/projects/resedential_house.png',
-    filename: 'resedential_house.png',
-    aspect: 'large',
-    feature: true
+    categoryLabel: 'Technical Working Drawing',
+    title: 'Residential Project Working Drawings',
+    caption: 'Detailed municipal architectural sanction plans & elevation grid',
+    src: '/assets/portfolio/projects/resedential_house.png'
   },
   {
     id: 'proj-iit-palakkad',
     category: 'PROJECTS',
-    categoryLabel: 'Projects // Master Plan',
-    src: '/assets/portfolio/projects/IITPalakad_plan.jpeg',
-    filename: 'IITPalakad_plan.jpeg',
-    aspect: 'wide'
+    categoryLabel: 'Institutional Master Plan',
+    title: 'IIT Palakkad Master Plan',
+    caption: 'Comprehensive campus spatial zoning and circulation layout',
+    src: '/assets/portfolio/projects/IITPalakad_plan.jpeg'
   },
   {
     id: 'proj-nenmeli',
     category: 'PROJECTS',
-    categoryLabel: 'Projects // Residential Scheme',
-    src: '/assets/portfolio/projects/nenmeli.jpeg',
-    filename: 'nenmeli.jpeg',
-    aspect: 'square'
+    categoryLabel: 'Residential Architecture',
+    title: 'Nenmeli Residential Scheme',
+    caption: 'Contemporary residential exterior elevation and massing',
+    src: '/assets/portfolio/projects/nenmeli.jpeg'
   },
   {
     id: 'proj-door-joinery',
     category: 'PROJECTS',
-    categoryLabel: 'Projects // Joinery Detail',
-    src: '/assets/portfolio/projects/door.jpeg',
-    filename: 'door.jpeg',
-    aspect: 'tall'
+    categoryLabel: 'Detailing & Millwork',
+    title: 'Architectural Joinery Detail',
+    caption: 'Custom crafted timber door and portal framework',
+    src: '/assets/portfolio/projects/door.jpeg'
   },
   {
     id: 'proj-construction-view',
     category: 'PROJECTS',
-    categoryLabel: 'Projects // Construction',
-    src: '/assets/portfolio/projects/project.jpeg',
-    filename: 'project.jpeg',
-    aspect: 'wide'
+    categoryLabel: 'Construction Practice',
+    title: 'Project Execution & Framing',
+    caption: 'Structural column alignments and on-site building supervision',
+    src: '/assets/portfolio/projects/project.jpeg'
   },
   {
     id: 'proj-whatsapp-archive',
     category: 'PROJECTS',
-    categoryLabel: 'Projects // Documentation',
-    src: '/assets/portfolio/projects/WhatsApp%20Image%202026-09-19%20at%2019.30.14%20(2)%207.54.01%E2%80%AFPM.jpeg',
-    filename: 'WhatsApp Image 2026-09-19.jpeg',
-    aspect: 'square'
+    categoryLabel: 'Project Archive',
+    title: 'Site Documentation Record',
+    caption: 'Field architectural survey and spatial record',
+    src: '/assets/portfolio/projects/WhatsApp%20Image%202026-09-19%20at%2019.30.14%20(2)%207.54.01%E2%80%AFPM.jpeg'
   },
 
   // INTERIORS
   {
     id: 'int-design-feature',
     category: 'INTERIORS',
-    categoryLabel: 'Interiors // Spatial Composition',
-    src: '/assets/portfolio/interiors/design.jpeg',
-    filename: 'design.jpeg',
-    aspect: 'large',
-    feature: true
+    categoryLabel: 'Interior Architecture',
+    title: 'Bespoke Interior Environment',
+    caption: 'Spatial flow, ambient lighting, and bespoke material palette',
+    src: '/assets/portfolio/interiors/design.jpeg'
   },
   {
     id: 'int-1',
     category: 'INTERIORS',
-    categoryLabel: 'Interiors // Living Space',
-    src: '/assets/portfolio/interiors/interior1.jpeg',
-    filename: 'interior1.jpeg',
-    aspect: 'tall'
+    categoryLabel: 'Interior Design',
+    title: 'Living Space Detailing',
+    caption: 'Residential living room interior composition',
+    src: '/assets/portfolio/interiors/interior1.jpeg'
   },
   {
     id: 'int-2',
     category: 'INTERIORS',
-    categoryLabel: 'Interiors // Cabinetry Detail',
-    src: '/assets/portfolio/interiors/interior2.jpeg',
-    filename: 'interior2.jpeg',
-    aspect: 'square'
+    categoryLabel: 'Interior Joinery',
+    title: 'Custom Cabinetry & Millwork',
+    caption: 'Integrated storage millwork and surface finishes',
+    src: '/assets/portfolio/interiors/interior2.jpeg'
   },
   {
     id: 'int-3',
     category: 'INTERIORS',
-    categoryLabel: 'Interiors // Material Finish',
-    src: '/assets/portfolio/interiors/interior3.jpeg',
-    filename: 'interior3.jpeg',
-    aspect: 'square'
+    categoryLabel: 'Material Detailing',
+    title: 'Architectural Interior Finishes',
+    caption: 'Detailed interior finish specifications and lighting',
+    src: '/assets/portfolio/interiors/interior3.jpeg'
   },
 
   // COLLEGE / ACADEMIC
   {
     id: 'col-prof-talk',
     category: 'COLLEGE',
-    categoryLabel: 'College // Academic Lecture',
-    src: '/assets/portfolio/college/prof_talk.jpeg',
-    filename: 'prof_talk.jpeg',
-    aspect: 'wide',
-    feature: true
+    categoryLabel: 'Academic Leadership',
+    title: 'Department Academic Lecture',
+    caption: 'Architecture institutional lecture and keynote presentation',
+    src: '/assets/portfolio/college/prof_talk.jpeg'
   },
   {
     id: 'col-field-visit',
     category: 'COLLEGE',
-    categoryLabel: 'College // Field Visit',
-    src: '/assets/portfolio/college/field_visit.jpeg',
-    filename: 'field_visit.jpeg',
-    aspect: 'tall'
+    categoryLabel: 'Studio Pedagogy',
+    title: 'Student Architectural Field Visit',
+    caption: 'Practical field study and site survey with architecture cohort',
+    src: '/assets/portfolio/college/field_visit.jpeg'
   },
   {
     id: 'col-studio-interaction',
     category: 'COLLEGE',
-    categoryLabel: 'College // Studio Review',
-    src: '/assets/portfolio/college/college1.jpeg',
-    filename: 'college1.jpeg',
-    aspect: 'square'
+    categoryLabel: 'Academic Mentorship',
+    title: 'Design Studio Review & Critique',
+    caption: 'Interactive architectural studio critique and drawing review',
+    src: '/assets/portfolio/college/college1.jpeg'
   },
   {
     id: 'col-group-photo',
     category: 'COLLEGE',
-    categoryLabel: 'College // Department Cohort',
-    src: '/assets/portfolio/college/group_ph.jpeg',
-    filename: 'group_ph.jpeg',
-    aspect: 'wide'
+    categoryLabel: 'Institutional Leadership',
+    title: 'Architecture Faculty & Cohort',
+    caption: 'Academic department conference and student delegation',
+    src: '/assets/portfolio/college/group_ph.jpeg'
   },
 
   // SITE INSPECTION
   {
     id: 'site-inspection-1',
     category: 'SITE INSPECTION',
-    categoryLabel: 'Site Inspection // Field Supervision',
-    src: '/assets/portfolio/site_inspection/site1.jpeg',
-    filename: 'site1.jpeg',
-    aspect: 'wide',
-    feature: true
+    categoryLabel: 'Field Engineering',
+    title: 'Structural Site Inspection',
+    caption: 'On-site inspection of structural foundation and slab casting',
+    src: '/assets/portfolio/site_inspection/site1.jpeg'
   },
   {
     id: 'site-inspection-2',
     category: 'SITE INSPECTION',
-    categoryLabel: 'Site Inspection // Structure Alignment',
-    src: '/assets/portfolio/site_inspection/site2.jpeg',
-    filename: 'site2.jpeg',
-    aspect: 'tall'
+    categoryLabel: 'Site Supervision',
+    title: 'Foundation Alignment & Verification',
+    caption: 'Detailed site level verification and structural compliance check',
+    src: '/assets/portfolio/site_inspection/site2.jpeg'
   }
 ];

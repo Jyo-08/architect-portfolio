@@ -84,8 +84,8 @@ export const Lightbox: React.FC<LightboxProps> = ({
               <span className="text-xs font-mono text-[#D9383A] tracking-[0.2em] uppercase font-semibold">
                 {currentImage.categoryLabel}
               </span>
-              <span className="text-[11px] font-mono text-[#9AA0AC]">
-                {currentImage.filename}
+              <span className="text-sm font-serif text-[#F5F5F3] font-medium">
+                {currentImage.title}
               </span>
             </div>
           </div>
@@ -130,7 +130,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           >
             <img
               src={currentImage.src}
-              alt={`${currentImage.categoryLabel} - ${currentImage.filename}`}
+              alt={`${currentImage.title} - ${currentImage.categoryLabel}`}
               className="max-h-[76vh] max-w-[92vw] md:max-w-[85vw] object-contain border border-white/10 shadow-2xl bg-[#090A0D]"
             />
           </motion.div>

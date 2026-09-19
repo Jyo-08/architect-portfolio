@@ -71,7 +71,7 @@ export const ExpertisePage: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] max-w-2xl font-light"
               >
-                Documented fields across statutory city planning consultancy, GIS master planning, private practice, and architectural teaching curricula.
+                Documented specializations spanning statutory master planning, private practice, and architectural studio pedagogy.
               </motion.p>
             </div>
 
@@ -98,45 +98,8 @@ export const ExpertisePage: React.FC = () => {
             </div>
           </div>
 
-          {/* Master Planning Featured Banner */}
-          <div className="relative mb-16 border border-white/10 bg-[#111319] overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
-              <div className="lg:col-span-7 p-8 sm:p-12 space-y-4">
-                <div className="flex items-center gap-3 text-xs font-mono text-[#D9383A] tracking-widest uppercase">
-                  <span className="w-2 h-2 rounded-full bg-[#D9383A]" />
-                  <span>CORE SPECIALIZATION &amp; METHODOLOGY</span>
-                </div>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F5F3]">
-                  GIS-Driven Regional &amp; City Master Plans
-                </h2>
-                <p className="text-sm sm:text-base text-[#CDD0D8] font-light leading-relaxed">
-                  Integrating multi-layered spatial data, statutory land-use zoning, development control regulations (DCPR), and infrastructure frameworks for statutory urban authorities.
-                </p>
-                <div className="pt-2 flex flex-wrap gap-3">
-                  <span className="px-3 py-1 bg-[#1A1D26] border border-white/10 text-xs font-mono text-[#CDD0D8]">
-                    AMRUT 2.0 Sub-Scheme
-                  </span>
-                  <span className="px-3 py-1 bg-[#1A1D26] border border-white/10 text-xs font-mono text-[#CDD0D8]">
-                    JNPA Master Plan (Navi Mumbai)
-                  </span>
-                  <span className="px-3 py-1 bg-[#1A1D26] border border-white/10 text-xs font-mono text-[#CDD0D8]">
-                    DTCP &amp; Municipal Bylaws
-                  </span>
-                </div>
-              </div>
-              <div className="lg:col-span-5 h-64 lg:h-full relative overflow-hidden">
-                <img
-                  src="/images/urban-planning.jpg"
-                  alt="City planning schematic and GIS zoning map"
-                  className="w-full h-full object-cover object-center grayscale contrast-125 hover:scale-105 transition-transform duration-700 opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#111319] via-transparent to-transparent hidden lg:block" />
-              </div>
-            </div>
-          </div>
-
-          {/* 10 Disciplines Editorial Numbered Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {/* 10 Disciplines Editorial Numbered Grid with Linked Images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {filteredData.map((item, index) => {
               const Icon = iconMap[item.iconName] || Map;
               const isHovered = selectedDomain === index;
@@ -148,39 +111,59 @@ export const ExpertisePage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   onMouseEnter={() => setSelectedDomain(index)}
-                  className={`p-6 sm:p-8 border transition-all duration-300 relative group cursor-pointer ${
+                  className={`p-6 sm:p-8 border transition-all duration-300 relative group flex flex-col justify-between ${
                     isHovered
                       ? 'bg-[#141720] border-[#D9383A]/60 shadow-2xl'
                       : 'bg-[#111319]/70 border-white/8 hover:border-white/20'
                   }`}
                 >
-                  {/* Header Row */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#D9383A] tracking-widest font-semibold">
-                        /{item.number}
-                      </span>
-                      <span className="text-[11px] font-mono tracking-widest text-[#9AA0AC] uppercase">
-                        {item.category}
-                      </span>
+                  <div>
+                    {/* Header Row */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-xs text-[#D9383A] tracking-widest font-semibold">
+                          /{item.number}
+                        </span>
+                        <span className="text-[11px] font-mono tracking-widest text-[#9AA0AC] uppercase">
+                          {item.category}
+                        </span>
+                      </div>
+                      <div className="w-8 h-8 rounded-none border border-white/10 bg-[#1A1D26] flex items-center justify-center text-[#9AA0AC] group-hover:text-[#D9383A] group-hover:border-[#D9383A]/40 transition-colors">
+                        <Icon className="w-4 h-4" />
+                      </div>
                     </div>
-                    <div className="w-8 h-8 rounded-none border border-white/10 bg-[#1A1D26] flex items-center justify-center text-[#9AA0AC] group-hover:text-[#D9383A] group-hover:border-[#D9383A]/40 transition-colors">
-                      <Icon className="w-4 h-4" />
-                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#F5F5F3] mb-2.5 group-hover:text-[#D9383A] transition-colors">
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-[#CDD0D8] font-light leading-relaxed mb-5">
+                      {item.description}
+                    </p>
+
+                    {/* Relevant Photo Attachment (Rendered ONLY when non-null) */}
+                    {item.image && (
+                      <div className="mb-5 overflow-hidden border border-white/10 bg-[#090A0D] relative group/img">
+                        <img
+                          src={item.image}
+                          alt={item.imageAlt || item.title}
+                          loading="lazy"
+                          className="w-full h-44 sm:h-48 object-cover object-center group-hover/img:scale-103 transition-transform duration-500 brightness-95 group-hover/img:brightness-105"
+                        />
+                        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#090A0D]/90 via-[#090A0D]/40 to-transparent p-3 flex items-center justify-between">
+                          <span className="text-[10px] font-mono tracking-wider text-[#CDD0D8] uppercase">
+                            {item.title} Field Record
+                          </span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#D9383A]" />
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-serif text-xl font-bold text-[#F5F5F3] mb-3 group-hover:text-[#D9383A] transition-colors">
-                    {item.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-[#CDD0D8] font-light leading-relaxed mb-6">
-                    {item.description}
-                  </p>
-
                   {/* Key Subtopics */}
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-white/8">
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/8">
                     {item.keyTopics.map((topic, i) => (
                       <span
                         key={i}

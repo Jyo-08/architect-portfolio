@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Mail, Send, Check, Copy } from 'lucide-react';
 
 interface InquiryModalProps {
@@ -17,6 +17,30 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
+  // Close on Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  // Lock body scroll when open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -29,19 +53,25 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
     );
     
     // Trigger user's email client
-    window.location.href = `mailto:contact.ar.jayaraman@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:jnmidas@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('contact.ar.jayaraman@gmail.com');
+    navigator.clipboard.writeText('jnmidas@gmail.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#090A0D]/90 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-2xl bg-[#111319] border border-white/15 p-6 sm:p-10 shadow-2xl">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#090A0D]/90 backdrop-blur-md animate-fade-in select-none"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-2xl bg-[#111319] border border-white/15 p-6 sm:p-10 shadow-2xl select-text"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -84,7 +114,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
                 className="px-4 py-2 bg-[#1A1D27] border border-white/15 text-xs font-mono text-[#F5F5F3] flex items-center gap-2"
               >
                 <Mail className="w-3.5 h-3.5 text-[#D9383A]" />
-                <span>contact.ar.jayaraman@gmail.com</span>
+                <span>jnmidas@gmail.com</span>
                 {copiedEmail ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
               </button>
             </div>

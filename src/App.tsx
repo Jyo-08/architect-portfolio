@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
-import { InquiryModal } from './components/InquiryModal';
+import { GmailConfirmModal } from './components/GmailConfirmModal';
 
 import { HomePage } from './pages/HomePage';
 import { WorkPage } from './pages/WorkPage';
@@ -35,32 +35,43 @@ function AnimatedRoutes({ onOpenInquiry }: { onOpenInquiry: () => void }) {
   );
 }
 
-export function App() {
+function AppContent() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
+  const location = useLocation();
+
+  const handleOpenInquiry = () => setInquiryModalOpen(true);
+  const handleCloseInquiry = () => setInquiryModalOpen(false);
 
   return (
+    <div className="min-h-screen bg-[#090A0D] text-[#F5F5F3] selection:bg-[#D9383A] selection:text-[#F5F5F3] relative flex flex-col justify-between">
+      {/* Scroll restoration on route change */}
+      <ScrollToTop />
+
+      {/* Global Multi-Page Navbar */}
+      <Navbar onOpenInquiry={handleOpenInquiry} />
+
+      {/* Main Routed Page Content */}
+      <main className="flex-grow">
+        <AnimatedRoutes onOpenInquiry={handleOpenInquiry} />
+      </main>
+
+      {/* Global Multi-Page Editorial Footer */}
+      <Footer onOpenInquiry={handleOpenInquiry} />
+
+      {/* Consultation Inquiry Modal (fresh key per route prevents stale overlay) */}
+      <GmailConfirmModal
+        key={location.pathname}
+        isOpen={inquiryModalOpen}
+        onClose={handleCloseInquiry}
+      />
+    </div>
+  );
+}
+
+export function App() {
+  return (
     <Router>
-      <div className="min-h-screen bg-[#090A0D] text-[#F5F5F3] selection:bg-[#D9383A] selection:text-[#F5F5F3] relative flex flex-col justify-between">
-        {/* Scroll restoration on route change */}
-        <ScrollToTop />
-
-        {/* Global Multi-Page Navbar */}
-        <Navbar onOpenInquiry={() => setInquiryModalOpen(true)} />
-
-        {/* Main Routed Page Content */}
-        <main className="flex-grow">
-          <AnimatedRoutes onOpenInquiry={() => setInquiryModalOpen(true)} />
-        </main>
-
-        {/* Global Multi-Page Editorial Footer */}
-        <Footer onOpenInquiry={() => setInquiryModalOpen(true)} />
-
-        {/* Consultation Inquiry Modal */}
-        <InquiryModal
-          isOpen={inquiryModalOpen}
-          onClose={() => setInquiryModalOpen(false)}
-        />
-      </div>
+      <AppContent />
     </Router>
   );
 }

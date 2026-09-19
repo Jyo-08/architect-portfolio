@@ -21,6 +21,8 @@ export interface ExpertiseItem {
   description: string;
   keyTopics: string[];
   iconName: string;
+  image?: string | null;
+  imageAlt?: string;
 }
 
 export interface EducationItem {

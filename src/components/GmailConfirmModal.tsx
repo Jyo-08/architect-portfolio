@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { X, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { X, ExternalLink, Mail, Copy, Check, AlertCircle } from 'lucide-react';
 
 interface GmailConfirmModalProps {
   isOpen: boolean;
@@ -16,17 +16,26 @@ export const GmailConfirmModal: React.FC<GmailConfirmModalProps> = ({
   subject = 'Professional Inquiry — Architecture & City Planning',
   body = 'Hello,\n\nI would like to get in touch regarding architecture, city planning, consultancy, or related professional services.\n\nThank you.\n\nRegards,'
 }) => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
+
+  const handleClose = useCallback(() => {
+    setShowFallback(false);
+    onClose();
+  }, [onClose]);
+
   // Close on Escape key
   useEffect(() => {
     if (!isOpen) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose();
+        handleClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, handleClose]);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -42,19 +51,42 @@ export const GmailConfirmModal: React.FC<GmailConfirmModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleContinueToGmail = () => {
-    const encodedSubject = encodeURIComponent(subject);
-    const encodedBody = encodeURIComponent(body);
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodedSubject}&body=${encodedBody}`;
-    
-    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
-    onClose();
+  const encodedRecipient = encodeURIComponent(recipientEmail);
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+
+  // Exact required Gmail compose URL format
+  const gmailUrl = `https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=${encodedRecipient}&su=${encodedSubject}&body=${encodedBody}`;
+  const mailtoUrl = `mailto:${recipientEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(recipientEmail);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleContinueClick = () => {
+    // Attempt window.open check for browsers blocking popups
+    try {
+      const testWin = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+      if (!testWin || testWin.closed || typeof testWin.closed === 'undefined') {
+        // Popup was blocked, show fallback notice
+        setShowFallback(true);
+      } else {
+        // Successfully opened in new tab
+        setTimeout(() => {
+          handleClose();
+        }, 300);
+      }
+    } catch {
+      setShowFallback(true);
+    }
   };
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#090A0D]/90 backdrop-blur-md animate-fade-in select-none"
-      onClick={onClose}
+      onClick={handleClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="gmail-modal-title"
@@ -65,7 +97,7 @@ export const GmailConfirmModal: React.FC<GmailConfirmModalProps> = ({
       >
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-5 right-5 p-2 text-[#9AA0AC] hover:text-[#F5F5F3] border border-white/10 hover:border-white/30 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
           aria-label="Close dialog (Esc)"
         >
@@ -88,11 +120,36 @@ export const GmailConfirmModal: React.FC<GmailConfirmModalProps> = ({
           </p>
         </div>
 
+        {/* Fallback Notice if Popup Was Blocked */}
+        {showFallback && (
+          <div className="mb-5 p-3.5 bg-[#D9383A]/10 border border-[#D9383A]/40 text-xs font-mono text-[#F5F5F3] flex items-start gap-2.5 animate-fade-in">
+            <AlertCircle className="w-4 h-4 text-[#D9383A] shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-[#F5F5F3] mb-1">
+                Gmail could not be opened automatically.
+              </p>
+              <p className="text-[#CDD0D8] font-light">
+                Please use the direct link below, open your default mail client, or copy the email address.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Details Box */}
         <div className="p-4 bg-[#171A24]/90 border border-white/8 space-y-2.5 mb-6 text-xs font-mono">
           <div className="flex items-center justify-between">
             <span className="text-[#9AA0AC]">RECIPIENT:</span>
-            <span className="text-[#F5F5F3] font-medium">{recipientEmail}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[#F5F5F3] font-medium">{recipientEmail}</span>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="p-1 hover:text-[#D9383A] text-[#9AA0AC] transition-colors"
+                title="Copy email address"
+              >
+                {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+              </button>
+            </div>
           </div>
           <div className="flex items-start justify-between gap-2 pt-2 border-t border-white/5">
             <span className="text-[#9AA0AC] shrink-0">SUBJECT:</span>
@@ -100,24 +157,45 @@ export const GmailConfirmModal: React.FC<GmailConfirmModalProps> = ({
           </div>
         </div>
 
-        {/* Actions */}
-        <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-2">
+        {/* Direct Fallback Links */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#9AA0AC] pt-1">
           <button
             type="button"
-            onClick={onClose}
+            onClick={handleCopyEmail}
+            className="hover:text-[#F5F5F3] transition-colors flex items-center gap-1.5"
+          >
+            <Copy className="w-3 h-3 text-[#D9383A]" />
+            <span>{copiedEmail ? 'Email Copied!' : 'Copy Email'}</span>
+          </button>
+          <a
+            href={mailtoUrl}
+            className="hover:text-[#F5F5F3] transition-colors flex items-center gap-1.5"
+          >
+            <Mail className="w-3 h-3 text-[#D9383A]" />
+            <span>Open Default Mail Client</span>
+          </a>
+        </div>
+
+        {/* Modal Actions */}
+        <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-2 border-t border-white/10">
+          <button
+            type="button"
+            onClick={handleClose}
             className="w-full sm:w-auto px-5 py-2.5 border border-white/15 text-[#9AA0AC] hover:text-[#F5F5F3] hover:border-white/30 text-xs font-mono tracking-widest uppercase transition-colors"
           >
             CANCEL
           </button>
 
-          <button
-            type="button"
-            onClick={handleContinueToGmail}
+          <a
+            href={gmailUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleContinueClick}
             className="w-full sm:w-auto px-6 py-2.5 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F5F5F3] text-xs font-mono tracking-[0.15em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#D9383A]/20"
           >
             <span>CONTINUE TO GMAIL</span>
             <ExternalLink className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
       </div>
     </div>

@@ -143,6 +143,176 @@ export const portfolioAssetsData: PortfolioAsset[] = [
     documentType: 'photograph',
     caption: 'Architectural structure execution view.'
   },
+  {
+    id: 'asset-proj-site-archive',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-09-19 at 19.30.14 (2) 7.54.01 PM.jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-09-19%20at%2019.30.14%20(2)%207.54.01%E2%80%AFPM.jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-09-19 at 19.30.14 (2) 7.54.01 PM.jpeg',
+    titlePlaceholder: 'Site Survey & Documentation Record',
+    documentType: 'photograph',
+    caption: 'Field architectural survey and spatial documentation.'
+  },
+  {
+    id: 'asset-proj-master-suite-01',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.40.jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.40.jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.40.jpeg',
+    titlePlaceholder: 'Executive Master Bedroom Suite',
+    documentType: 'photograph',
+    caption: 'Floor-to-ceiling customized wardrobe millwork with integrated display niche and warm ambient cove lighting.'
+  },
+  {
+    id: 'asset-proj-master-suite-02',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.40 (1).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.40%20(1).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.40 (1).jpeg',
+    titlePlaceholder: 'Master Bedroom Study & Workstation',
+    documentType: 'photograph',
+    caption: 'Integrated ergonomic workstation with acoustic timber wall fluting and overhead storage cabinetry.'
+  },
+  {
+    id: 'asset-proj-master-suite-03',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.41.jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.41.jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.41.jpeg',
+    titlePlaceholder: 'Walk-In Dressing & Wardrobe Suite',
+    documentType: 'photograph',
+    caption: 'Tailored architectural dressing suite with fluted glass cabinetry and concealed dressing mirror.'
+  },
+  {
+    id: 'asset-proj-master-suite-04',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.41 (1).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.41%20(1).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.41 (1).jpeg',
+    titlePlaceholder: 'Master Suite Media Console',
+    documentType: 'photograph',
+    caption: 'Custom wood veneer media console with concealed peripheral warm ambient perimeter lighting.'
+  },
+  {
+    id: 'asset-proj-master-suite-05',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.41 (2).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.41%20(2).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.41 (2).jpeg',
+    titlePlaceholder: 'Master Suite Bedroom Interior Perspective',
+    documentType: 'photograph',
+    caption: 'Spatial composition balancing floor-to-ceiling drapery, natural illumination, and bespoke millwork.'
+  },
+  {
+    id: 'asset-proj-living-salon-01',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.41 (3).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.41%20(3).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.41 (3).jpeg',
+    titlePlaceholder: 'Contemporary Living Lounge Salon',
+    documentType: 'photograph',
+    caption: 'Formal reception lounge featuring vertical metallic fluting, statuario marble wall cladding, and designer pendant fixtures.'
+  },
+  {
+    id: 'asset-proj-living-salon-02',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.43.jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.43.jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.43.jpeg',
+    titlePlaceholder: 'Formal Reception Feature Wall',
+    documentType: 'photograph',
+    caption: 'Symmetrical architectural wall panelling with fluted accents and cove illumination.'
+  },
+  {
+    id: 'asset-proj-living-salon-03',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.43 (1).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.43%20(1).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.43 (1).jpeg',
+    titlePlaceholder: 'Living Room Spatial Composition',
+    documentType: 'photograph',
+    caption: 'Wide-angle perspective of living salon highlighting layered acoustic ceiling raft and marble accents.'
+  },
+  {
+    id: 'asset-proj-living-salon-04',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.43 (2).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.43%20(2).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.43 (2).jpeg',
+    titlePlaceholder: 'Lounge Seating & Sculptural Accents',
+    documentType: 'photograph',
+    caption: 'Refined spatial planning with low-profile seating, metallic accent tables, and sculptural lighting elements.'
+  },
+  {
+    id: 'asset-proj-office-workstation-01',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.45.jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.45.jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.45.jpeg',
+    titlePlaceholder: 'Corporate Office Workstation Pods',
+    documentType: 'photograph',
+    caption: 'Open-plan corporate workspace with biophilic planter dividers, ergonomic task stations, and coffered timber ceiling raft.'
+  },
+  {
+    id: 'asset-proj-office-workstation-02',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.46.jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.46.jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.46.jpeg',
+    titlePlaceholder: 'Executive Workstation Bay & East Wall',
+    documentType: 'photograph',
+    caption: 'Linear workstation arrangement with acoustic partition panels, task lighting, and integrated wall cabinetry.'
+  },
+  {
+    id: 'asset-proj-office-reception',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.46 (1).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.46%20(1).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.46 (1).jpeg',
+    titlePlaceholder: 'Corporate Reception & Waiting Lounge',
+    documentType: 'photograph',
+    caption: 'Angular marble reception desk with natural wood paneling, biophilic planting, and brand backdrop.'
+  },
+  {
+    id: 'asset-proj-office-workstation-03',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.47.jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.47.jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.47.jpeg',
+    titlePlaceholder: 'Integrated Workstation Array & West Wall',
+    documentType: 'photograph',
+    caption: 'Modular desktop workstations with cable management raceways and framed acoustic art panels.'
+  },
+  {
+    id: 'asset-proj-office-workstation-04',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.47 (1).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.47%20(1).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.47 (1).jpeg',
+    titlePlaceholder: 'Open Office Floor Layout Perspective',
+    documentType: 'photograph',
+    caption: 'Spacious office circulation layout with wood-trimmed ceiling coffers and ergonomic desk clusters.'
+  },
+  {
+    id: 'asset-proj-office-workstation-05',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.47 (2).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.47%20(2).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.47 (2).jpeg',
+    titlePlaceholder: 'South Wall Workstation Suite',
+    documentType: 'photograph',
+    caption: 'Symmetrical desk array with overhead bookstacks, storage lockers, and warm architectural under-cabinet illumination.'
+  },
+  {
+    id: 'asset-proj-office-plan',
+    category: 'projects',
+    filename: 'WhatsApp Image 2026-11-02 at 17.28.47 (3).jpeg',
+    filePath: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.47%20(3).jpeg',
+    temporaryIdentifier: 'projects/WhatsApp Image 2026-11-02 at 17.28.47 (3).jpeg',
+    titlePlaceholder: 'Office Space Planning & Layout Plan',
+    documentType: 'drawing',
+    caption: 'Detailed architectural space plan with dimensional workstation grid, partition specifications, and circulation clearances.'
+  },
 
   // INTERIORS CATEGORY
   {

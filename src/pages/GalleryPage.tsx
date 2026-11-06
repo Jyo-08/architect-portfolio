@@ -6,6 +6,22 @@ import type { GalleryCategory } from '../data/galleryData';
 import { Lightbox } from '../components/Lightbox';
 import { Eye, Layers, Sparkles } from 'lucide-react';
 
+const getImageCropClass = (src: string): string => {
+  if (src.includes('door.jpeg')) return 'object-cover object-[center_36%] scale-112';
+  if (src.includes('IITPalakad_plan.jpeg')) return 'object-cover object-[center_85%] scale-130';
+  if (src.includes('site1.jpeg') || src.includes('site2.jpeg')) return 'object-cover object-[center_15%] scale-135';
+  if (src.includes('design.jpeg')) return 'object-cover object-[center_40%] scale-126';
+  if (src.includes('17.28.47%20(3)') || src.includes('17.28.47 (3)')) return 'object-contain p-2';
+  if (
+    src.includes('17.28.45') ||
+    src.includes('17.28.46') ||
+    src.includes('17.28.47')
+  ) {
+    return 'object-cover object-[center_28%] scale-115';
+  }
+  return 'object-cover object-center';
+};
+
 export const GalleryPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('ALL');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -21,11 +37,11 @@ export const GalleryPage: React.FC = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-[#090A0D] pt-32 pb-24 px-6 sm:px-8 lg:px-12">
+      <div className="min-h-screen bg-[#111214] pt-32 pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           
-          {/* Landing Screen */}
-          <div className="relative mb-16 pb-12 border-b border-white/10">
+          {/* Landing Screen: First letter G in Red, NO FULL STOP */}
+          <div className="relative mb-16 pb-12 border-b border-[#2A2D31]">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -43,7 +59,8 @@ export const GalleryPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#F5F5F3] uppercase leading-[1.05]"
+              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#F2F2F0] uppercase leading-[1.05]"
+              aria-label="Gallery"
             >
               <span className="text-[#D9383A] inline-block">G</span>
               <span>ALLERY</span>
@@ -53,7 +70,7 @@ export const GalleryPage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg lg:text-xl text-[#CDD0D8] font-light max-w-3xl leading-relaxed"
+              className="mt-6 text-base sm:text-lg lg:text-xl text-[#D8DAD8] font-light max-w-3xl leading-relaxed"
             >
               Visual portfolio records covering project execution, interior design, academic studio lectures, and on-site structural inspections.
             </motion.p>
@@ -61,7 +78,7 @@ export const GalleryPage: React.FC = () => {
 
           {/* Editorial Category Filters Row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-6">
-            <div className="flex items-center gap-2 text-xs font-mono text-[#9AA0AC] uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#A5A7AA] uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-[#D9383A]" />
               <span>Filter Photographic Archives:</span>
             </div>
@@ -76,12 +93,12 @@ export const GalleryPage: React.FC = () => {
                     onClick={() => setActiveCategory(cat.id)}
                     className={`px-4 py-2 text-xs font-mono tracking-wider uppercase transition-all duration-300 border flex items-center gap-2 ${
                       isActive
-                        ? 'bg-[#D9383A] text-[#F5F5F3] font-semibold border-[#D9383A] shadow-lg shadow-[#D9383A]/20'
-                        : 'bg-[#111319]/80 text-[#9AA0AC] border-white/10 hover:text-[#F5F5F3] hover:border-white/25'
+                        ? 'bg-[#D9383A] text-[#F2F2F0] font-semibold border-[#D9383A] shadow-lg shadow-[#D9383A]/20'
+                        : 'bg-[#17191C] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-white/25'
                     }`}
                   >
                     <span>{cat.label}</span>
-                    <span className={`text-[10px] ${isActive ? 'text-[#F5F5F3]' : 'text-[#626776]'}`}>
+                    <span className={`text-[10px] ${isActive ? 'text-[#F2F2F0]' : 'text-[#72757C]'}`}>
                       ({count})
                     </span>
                   </button>
@@ -97,6 +114,8 @@ export const GalleryPage: React.FC = () => {
           >
             <AnimatePresence mode="popLayout">
               {filteredImages.map((img, index) => {
+                const cropClass = getImageCropClass(img.src);
+
                 return (
                   <motion.div
                     key={img.id}
@@ -108,28 +127,28 @@ export const GalleryPage: React.FC = () => {
                     className="group cursor-pointer flex flex-col"
                     onClick={() => setLightboxIndex(index)}
                   >
-                    <div className="relative overflow-hidden bg-[#111319] border border-white/10 group-hover:border-[#D9383A]/70 transition-all duration-500 shadow-xl flex flex-col h-full">
+                    <div className="relative overflow-hidden bg-[#17191C] border border-[#2A2D31] group-hover:border-[#D9383A]/70 transition-all duration-500 shadow-xl flex flex-col h-full">
                       {/* Stable Aspect Ratio Container */}
-                      <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#090A0D] flex items-center justify-center">
+                      <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#111214] flex items-center justify-center">
                         <img
                           src={img.src}
                           alt={`${img.title} — ${img.categoryLabel}`}
                           loading="lazy"
-                          className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-700 brightness-95 group-hover:brightness-105"
+                          className={`w-full h-full ${cropClass} group-hover:scale-104 transition-transform duration-700 brightness-95 group-hover:brightness-105`}
                         />
 
                         {/* Subtle Dark Hover Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#111214]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 pointer-events-none">
                           <div className="self-end">
-                            <span className="p-2 bg-[#090A0D]/80 text-[#D9383A] border border-white/15 flex items-center justify-center">
+                            <span className="p-2 bg-[#111214]/80 text-[#D9383A] border border-[#2A2D31] flex items-center justify-center">
                               <Eye className="w-4 h-4" />
                             </span>
                           </div>
                           <div>
-                            <span className="text-[10px] font-mono tracking-widest text-[#D9383A] uppercase block">
+                            <span className="text-[10px] font-mono tracking-widest text-[#D9383A] uppercase block font-semibold">
                               {img.category}
                             </span>
-                            <h4 className="font-serif text-base text-[#F5F5F3] font-medium mt-0.5">
+                            <h4 className="font-serif text-base text-[#F2F2F0] font-medium mt-0.5">
                               {img.title}
                             </h4>
                           </div>
@@ -137,19 +156,19 @@ export const GalleryPage: React.FC = () => {
                       </div>
 
                       {/* Editorial Caption Strip - Clean & No Raw Filenames */}
-                      <div className="p-4 bg-[#111319]/95 border-t border-white/5 flex flex-col justify-between flex-grow">
+                      <div className="p-4 bg-[#17191C] border-t border-[#2A2D31] flex flex-col justify-between flex-grow">
                         <div className="flex items-center justify-between text-xs font-mono mb-1">
                           <span className="text-[#D9383A] text-[10px] tracking-widest uppercase font-semibold">
                             {img.categoryLabel}
                           </span>
-                          <span className="text-[#626776] text-[10px] uppercase">
+                          <span className="text-[#72757C] text-[10px] uppercase">
                             /{String(index + 1).padStart(2, '0')}
                           </span>
                         </div>
-                        <h4 className="font-serif text-sm font-semibold text-[#F5F5F3] group-hover:text-[#D9383A] transition-colors">
+                        <h4 className="font-serif text-sm font-semibold text-[#F2F2F0] group-hover:text-[#D9383A] transition-colors">
                           {img.title}
                         </h4>
-                        <p className="text-[11px] text-[#9AA0AC] font-light mt-1 line-clamp-1">
+                        <p className="text-[11px] text-[#A5A7AA] font-light mt-1 line-clamp-1">
                           {img.caption}
                         </p>
                       </div>
@@ -161,7 +180,7 @@ export const GalleryPage: React.FC = () => {
           </motion.div>
 
           {/* Gallery Status Bar */}
-          <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#626776]">
+          <div className="mt-12 pt-6 border-t border-[#2A2D31] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#72757C]">
             <div className="flex items-center gap-2">
               <Layers className="w-3.5 h-3.5 text-[#D9383A]" />
               <span>DISPLAYING {filteredImages.length} OF {galleryImages.length} PORTFOLIO ARCHIVES</span>

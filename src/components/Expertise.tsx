@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { expertiseData } from '../data/expertiseData';
+import { AiText } from './AiText';
 import {
   Map,
   Building2,
@@ -155,14 +156,21 @@ export const Expertise: React.FC = () => {
 
                 {/* Key Subtopics / Syllabus Topics */}
                 <div className="flex flex-wrap gap-2 pt-3 border-t border-white/8">
-                  {item.keyTopics.map((topic, i) => (
-                    <span
-                      key={i}
-                      className="text-[11px] font-mono px-2 py-0.5 bg-[#1A1D26] text-[#9AA0AC] border border-white/5"
-                    >
-                      {topic}
-                    </span>
-                  ))}
+                  {item.keyTopics.map((topic, i) => {
+                    const isAiTopic = topic.includes('AI IN') || topic.includes('AI in');
+                    return (
+                      <span
+                        key={i}
+                        className={`text-[11px] font-mono px-2 py-0.5 border ${
+                          isAiTopic
+                            ? 'bg-[#111214] text-[#F2F2F0] border-[#D9383A]/40'
+                            : 'bg-[#1A1D26] text-[#9AA0AC] border-white/5'
+                        }`}
+                      >
+                        {isAiTopic ? <AiText text={topic} /> : topic}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             );

@@ -59,12 +59,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#090A0D]/95 backdrop-blur-md border-b border-white/10 py-3.5 shadow-2xl'
-            : 'bg-gradient-to-b from-[#090A0D]/90 via-[#090A0D]/50 to-transparent py-5'
+            ? 'bg-[#111214]/95 backdrop-blur-md border-b border-[#2A2D31] py-3.5 shadow-2xl'
+            : 'bg-gradient-to-b from-[#111214]/90 via-[#111214]/50 to-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          {/* Brand Logo with Official Identity Logo */}
+          {/* Brand Logo with Official Identity Logo (Preserved Exactly) */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
@@ -76,10 +76,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
               className="w-8 h-8 sm:w-9 sm:h-9 object-contain group-hover:scale-105 transition-transform duration-300 shrink-0"
             />
             <div className="flex flex-col">
-              <span className="font-serif text-base sm:text-lg lg:text-xl font-bold tracking-[0.18em] text-[#F5F5F3] group-hover:text-[#F5F5F3] transition-colors flex items-center">
+              <span className="font-serif text-base sm:text-lg lg:text-xl font-bold tracking-[0.18em] text-[#F2F2F0] group-hover:text-[#F2F2F0] transition-colors flex items-center">
                 <span className="text-[#D9383A] inline-block mr-0.5">AR.</span> N. JAYARAMAN
               </span>
-              <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-[#9AA0AC] uppercase font-mono group-hover:text-[#CDD0D8] transition-colors">
+              <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-[#A5A7AA] uppercase font-mono group-hover:text-[#D8DAD8] transition-colors">
                 Architect &amp; City Planner
               </span>
             </div>
@@ -95,8 +95,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                   to={link.href}
                   className={`text-xs font-mono tracking-[0.2em] uppercase transition-all relative py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] ${
                     isActive
-                      ? 'text-[#F5F5F3] font-semibold'
-                      : 'text-[#9AA0AC] hover:text-[#F5F5F3]'
+                      ? 'text-[#F2F2F0] font-semibold'
+                      : 'text-[#A5A7AA] hover:text-[#F2F2F0]'
                   }`}
                 >
                   {link.label}
@@ -114,10 +114,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             {/* Quick Inquire Action Button */}
             <button
               onClick={onOpenInquiry}
-              className="ml-2 px-4 py-2 border border-[#D9383A]/60 text-[#F5F5F3] hover:bg-[#D9383A] hover:text-[#F5F5F3] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9383A]"
+              className="ml-2 px-4 py-2 border border-[#D9383A]/60 text-[#F2F2F0] hover:bg-[#D9383A] hover:text-[#F2F2F0] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9383A] bg-[#17191C]/60"
             >
               <span>INQUIRE</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#D9383A] group-hover:text-[#F5F5F3]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#D9383A] group-hover:text-[#F2F2F0]" />
             </button>
           </nav>
 
@@ -125,13 +125,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={onOpenInquiry}
-              className="px-3 py-1.5 border border-[#D9383A]/60 text-[#F5F5F3] text-[11px] font-mono tracking-widest uppercase"
+              className="px-3 py-1.5 border border-[#D9383A]/60 text-[#F2F2F0] text-[11px] font-mono tracking-widest uppercase bg-[#17191C]/80"
             >
               INQUIRE
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#F5F5F3] hover:text-[#D9383A] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+              className="p-2 text-[#F2F2F0] hover:text-[#D9383A] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -149,25 +149,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-30 bg-[#090A0D]/98 backdrop-blur-2xl pt-28 px-8 flex flex-col md:hidden overflow-y-auto"
+            className="fixed inset-0 z-30 bg-[#111214]/98 backdrop-blur-2xl pt-28 px-8 flex flex-col md:hidden overflow-y-auto"
           >
-            <div className="border-b border-white/10 pb-4 mb-8 flex items-center justify-between">
-              <span className="text-xs font-mono text-[#D9383A] tracking-[0.25em] uppercase">
+            <div className="border-b border-[#2A2D31] pb-4 mb-8 flex items-center justify-between">
+              <span className="text-xs font-mono text-[#D9383A] tracking-[0.25em] uppercase font-semibold">
                 MONOGRAPH DIRECTORY
               </span>
-              <span className="text-[10px] font-mono text-[#626776]">ESC TO CLOSE</span>
+              <span className="text-[10px] font-mono text-[#72757C]">ESC TO CLOSE</span>
             </div>
 
             <div className="flex flex-col space-y-4">
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-white/5 transition-colors ${
-                  location.pathname === '/' ? 'text-[#D9383A]' : 'text-[#F5F5F3] hover:text-[#D9383A]'
+                className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-[#2A2D31]/50 transition-colors ${
+                  location.pathname === '/' ? 'text-[#D9383A]' : 'text-[#F2F2F0] hover:text-[#D9383A]'
                 }`}
               >
                 <span>HOME / OVERVIEW</span>
-                <span className="text-xs font-mono text-[#626776]">00</span>
+                <span className="text-xs font-mono text-[#72757C]">00</span>
               </Link>
               {navLinks.map((link, idx) => {
                 const isActive = location.pathname === link.href;
@@ -176,28 +176,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                     key={link.href}
                     to={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-white/5 transition-colors ${
-                      isActive ? 'text-[#D9383A]' : 'text-[#F5F5F3] hover:text-[#D9383A]'
+                    className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-[#2A2D31]/50 transition-colors ${
+                      isActive ? 'text-[#D9383A]' : 'text-[#F2F2F0] hover:text-[#D9383A]'
                     }`}
                   >
                     <span>{link.label}</span>
-                    <span className="text-xs font-mono text-[#626776]">0{idx + 1}</span>
+                    <span className="text-xs font-mono text-[#72757C]">0{idx + 1}</span>
                   </Link>
                 );
               })}
             </div>
 
             <div className="mt-auto pb-12 pt-8">
-              <p className="text-xs font-mono text-[#9AA0AC] mb-4">
+              <p className="text-xs font-mono text-[#A5A7AA] mb-4">
                 Ar. Nenmeli Jayaraman<br />
-                IIT Kharagpur (MCP &apos;99) • COA Registered Architect
+                IIT Kharagpur (MCP &apos;99) • B.Arch • LLB • COA Architect
               </p>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenInquiry();
                 }}
-                className="w-full py-4 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F5F5F3] font-mono text-xs tracking-[0.2em] uppercase font-bold text-center flex items-center justify-center gap-2 transition-colors"
+                className="w-full py-4 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F2F2F0] font-mono text-xs tracking-[0.2em] uppercase font-bold text-center flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#D9383A]/20"
               >
                 <span>Initiate Consultation</span>
                 <ArrowUpRight className="w-4 h-4" />

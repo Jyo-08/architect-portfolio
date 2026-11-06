@@ -53,8 +53,8 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#090A0D]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-2xl'
-            : 'bg-gradient-to-b from-[#090A0D]/80 via-[#090A0D]/40 to-transparent py-6'
+            ? 'bg-[#111214]/95 backdrop-blur-md border-b border-[#2A2D31] py-4 shadow-2xl'
+            : 'bg-gradient-to-b from-[#111214]/80 via-[#111214]/40 to-transparent py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
@@ -67,11 +67,11 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
               handleNavClick('#hero');
             }}
           >
-            <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.2em] text-[#F5F5F3] group-hover:text-[#C2A87E] transition-colors">
+            <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.2em] text-[#F2F2F0] group-hover:text-[#D9383A] transition-colors">
               AR. N. JAYARAMAN
             </span>
-            <span className="text-[10px] tracking-[0.25em] text-[#9AA0AC] uppercase font-mono mt-0.5">
-              Architect & Urban Planner
+            <span className="text-[10px] tracking-[0.25em] text-[#A5A7AA] uppercase font-mono mt-0.5">
+              Architect &amp; City Planner
             </span>
           </a>
 
@@ -89,13 +89,13 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
                   }}
                   className={`text-xs font-mono tracking-[0.2em] uppercase transition-all relative py-1 ${
                     isActive
-                      ? 'text-[#F5F5F3] font-semibold'
-                      : 'text-[#9AA0AC] hover:text-[#F5F5F3]'
+                      ? 'text-[#F2F2F0] font-semibold'
+                      : 'text-[#A5A7AA] hover:text-[#F2F2F0]'
                   }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C2A87E]" />
+                    <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#D9383A]" />
                   )}
                 </a>
               );
@@ -104,7 +104,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
             {/* Quick Inquire Action */}
             <button
               onClick={onOpenInquiry}
-              className="ml-4 px-4 py-2 border border-[#C2A87E]/50 text-[#C2A87E] hover:bg-[#C2A87E] hover:text-[#090A0D] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5"
+              className="ml-4 px-4 py-2 border border-[#D9383A]/50 text-[#F2F2F0] hover:bg-[#D9383A] hover:text-[#F2F2F0] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5 bg-[#17191C]/60"
             >
               <span>INQUIRE</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -115,13 +115,13 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={onOpenInquiry}
-              className="px-3 py-1.5 border border-[#C2A87E]/60 text-[#C2A87E] text-[11px] font-mono tracking-widest uppercase"
+              className="px-3 py-1.5 border border-[#D9383A]/60 text-[#F2F2F0] text-[11px] font-mono tracking-widest uppercase bg-[#17191C]"
             >
               INQUIRE
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#F5F5F3] hover:text-[#C2A87E] focus:outline-none"
+              className="p-2 text-[#F2F2F0] hover:text-[#D9383A] focus:outline-none"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -132,9 +132,9 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#090A0D]/98 backdrop-blur-xl pt-24 px-8 flex flex-col md:hidden animate-fade-in">
-          <div className="border-b border-white/10 pb-4 mb-8">
-            <span className="text-xs font-mono text-[#C2A87E] tracking-[0.25em] uppercase">Navigation Index</span>
+        <div className="fixed inset-0 z-40 bg-[#111214]/98 backdrop-blur-xl pt-24 px-8 flex flex-col md:hidden animate-fade-in">
+          <div className="border-b border-[#2A2D31] pb-4 mb-8">
+            <span className="text-xs font-mono text-[#D9383A] tracking-[0.25em] uppercase font-semibold">Navigation Index</span>
           </div>
           <div className="flex flex-col space-y-6">
             {navLinks.map((link, idx) => (
@@ -145,16 +145,16 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="flex items-center justify-between text-2xl font-serif tracking-wider text-[#F5F5F3] hover:text-[#C2A87E] transition-colors py-2 border-b border-white/5"
+                className="flex items-center justify-between text-2xl font-serif tracking-wider text-[#F2F2F0] hover:text-[#D9383A] transition-colors py-2 border-b border-[#2A2D31]/50"
               >
                 <span>{link.label}</span>
-                <span className="text-xs font-mono text-[#626776]">0{idx + 1}</span>
+                <span className="text-xs font-mono text-[#72757C]">0{idx + 1}</span>
               </a>
             ))}
           </div>
 
           <div className="mt-auto pb-12 pt-8">
-            <p className="text-xs font-mono text-[#9AA0AC] mb-4">
+            <p className="text-xs font-mono text-[#A5A7AA] mb-4">
               Ar. Nenmeli Jayaraman<br />
               IIT Kharagpur (MCP) • COA Registered
             </p>
@@ -163,7 +163,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenInquiry }) => {
                 setMobileMenuOpen(false);
                 onOpenInquiry();
               }}
-              className="w-full py-3.5 bg-[#C2A87E] text-[#090A0D] font-mono text-xs tracking-[0.2em] uppercase font-semibold text-center flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-[#D9383A] text-[#F2F2F0] font-mono text-xs tracking-[0.2em] uppercase font-semibold text-center flex items-center justify-center gap-2"
             >
               <span>Initiate Consultation</span>
               <ArrowUpRight className="w-4 h-4" />

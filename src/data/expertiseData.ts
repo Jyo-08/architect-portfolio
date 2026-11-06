@@ -7,7 +7,7 @@ export const expertiseData: ExpertiseItem[] = [
     category: 'City Planning',
     iconName: 'Map',
     description: 'Statutory city master plans, GIS spatial zoning, land-use allocation, and DCPR frameworks under AMRUT 2.0 and port authorities.',
-    keyTopics: ['GIS Base Maps', 'Zoning Regulations', 'AMRUT 2.0 Sub-Scheme', 'DCPR Preparations'],
+    keyTopics: ['GIS Base Maps', 'Zoning Regulations', 'AMRUT 2.0 Sub-Scheme', 'DCPR Preparations', 'AI IN PLANNING'],
     image: '/assets/portfolio/projects/IITPalakad_plan.jpeg',
     imageAlt: 'Statutory city master planning layout and zoning framework'
   },
@@ -26,7 +26,7 @@ export const expertiseData: ExpertiseItem[] = [
     category: 'City Planning',
     iconName: 'Layers',
     description: 'Multi-layered thematic spatial analysis, cadastral geo-referencing, and statutory data integration.',
-    keyTopics: ['Spatial Analysis', 'Thematic Mapping', 'Cadastral Georeferencing', 'Data-Driven Planning'],
+    keyTopics: ['Spatial Analysis', 'Thematic Mapping', 'Cadastral Georeferencing', 'Data-Driven Planning', 'AI IN PLANNING'],
     image: null
   },
   {
@@ -45,7 +45,7 @@ export const expertiseData: ExpertiseItem[] = [
     category: 'Architecture',
     iconName: 'Compass',
     description: 'Bespoke residential, commercial, and institutional synthesis balancing climatic responsiveness and structural logic.',
-    keyTopics: ['Spatial Composition', 'Climatic Responsiveness', 'Form & Function', 'Detailed Working Drawings'],
+    keyTopics: ['Spatial Composition', 'Climatic Responsiveness', 'Form & Function', 'Detailed Working Drawings', 'AI IN ARCHITECTURE'],
     image: '/assets/portfolio/projects/resedential_house.png',
     imageAlt: 'Comprehensive municipal sanctioned architectural drawing and structural elevation'
   },
@@ -75,7 +75,7 @@ export const expertiseData: ExpertiseItem[] = [
     category: 'Architecture',
     iconName: 'Wrench',
     description: 'Structural systems, material specifications, municipal bylaws, and on-site engineering execution.',
-    keyTopics: ['Construction Methodologies', 'Building Bylaws & Sanctions', 'Material Specifications', 'Tender Documentation'],
+    keyTopics: ['Construction Methodologies', 'Building Bylaws & Sanctions', 'Material Specifications', 'Tender Documentation', 'AI IN ARCHITECTURE'],
     image: '/assets/portfolio/site_inspection/site1.jpeg',
     imageAlt: 'On-site structural execution and engineering supervision'
   },
@@ -95,7 +95,7 @@ export const expertiseData: ExpertiseItem[] = [
     category: 'Academic & Research',
     iconName: 'GraduationCap',
     description: 'Institutional leadership, COA accreditation governance, architecture curriculum structuring, and thesis mentorship.',
-    keyTopics: ['Research Methodologies', 'Council Compliances', 'Thesis Mentorship', 'Curriculum Formulation'],
+    keyTopics: ['Research Methodologies', 'Council Compliances', 'Thesis Mentorship', 'Curriculum Formulation', 'AI IN PLANNING'],
     image: '/assets/portfolio/college/prof_talk.jpeg',
     imageAlt: 'Department leadership and architectural lecture address'
   }

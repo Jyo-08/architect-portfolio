@@ -43,7 +43,7 @@ function AppContent() {
   const handleCloseInquiry = () => setInquiryModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-[#090A0D] text-[#F5F5F3] selection:bg-[#D9383A] selection:text-[#F5F5F3] relative flex flex-col justify-between">
+    <div className="min-h-screen bg-[#111214] text-[#F2F2F0] selection:bg-[#D9383A] selection:text-[#F2F2F0] relative flex flex-col justify-between">
       {/* Scroll restoration on route change */}
       <ScrollToTop />
 
@@ -63,6 +63,7 @@ function AppContent() {
         key={location.pathname}
         isOpen={inquiryModalOpen}
         onClose={handleCloseInquiry}
+        recipientEmail="jesnenmeli@gmail.com"
       />
     </div>
   );

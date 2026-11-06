@@ -10,6 +10,22 @@ interface LightboxProps {
   onNavigate: (index: number) => void;
 }
 
+const getLightboxCropClass = (src: string): string => {
+  if (src.includes('door.jpeg')) return 'object-cover object-[center_36%] scale-112';
+  if (src.includes('IITPalakad_plan.jpeg')) return 'object-cover object-[center_85%] scale-130';
+  if (src.includes('site1.jpeg') || src.includes('site2.jpeg')) return 'object-cover object-[center_15%] scale-135';
+  if (src.includes('design.jpeg')) return 'object-cover object-[center_40%] scale-126';
+  if (src.includes('17.28.47%20(3)') || src.includes('17.28.47 (3)')) return 'object-contain p-4';
+  if (
+    src.includes('17.28.45') ||
+    src.includes('17.28.46') ||
+    src.includes('17.28.47')
+  ) {
+    return 'object-cover object-[center_28%] scale-115';
+  }
+  return 'object-contain';
+};
+
 export const Lightbox: React.FC<LightboxProps> = ({
   images,
   currentIndex,
@@ -63,6 +79,9 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
   if (!isOpen || !currentImage) return null;
 
+  const cropClass = getLightboxCropClass(currentImage.src);
+  const isCustomCropped = cropClass !== 'object-contain';
+
   return (
     <AnimatePresence>
       <motion.div
@@ -70,12 +89,12 @@ export const Lightbox: React.FC<LightboxProps> = ({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-50 bg-[#07080A]/96 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-8 select-none"
+        className="fixed inset-0 z-50 bg-[#111214]/98 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-8 select-none"
         onClick={onClose}
       >
         {/* Top Header Bar */}
         <div
-          className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between pb-4 border-b border-white/10"
+          className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between pb-4 border-b border-[#2A2D31]"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center gap-4">
@@ -84,20 +103,20 @@ export const Lightbox: React.FC<LightboxProps> = ({
               <span className="text-xs font-mono text-[#D9383A] tracking-[0.2em] uppercase font-semibold">
                 {currentImage.categoryLabel}
               </span>
-              <span className="text-sm font-serif text-[#F5F5F3] font-medium">
+              <span className="text-sm font-serif text-[#F2F2F0] font-medium">
                 {currentImage.title}
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-xs font-mono text-[#CDD0D8] tracking-widest">
+            <span className="text-xs font-mono text-[#D8DAD8] tracking-widest">
               {String((currentIndex ?? 0) + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
             </span>
 
             <button
               onClick={onClose}
-              className="p-2 border border-white/15 text-[#9AA0AC] hover:text-[#F5F5F3] hover:border-white/40 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+              className="p-2 border border-[#2A2D31] text-[#A5A7AA] hover:text-[#F2F2F0] hover:border-white/40 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] bg-[#17191C]"
               aria-label="Close fullscreen lightbox (Esc)"
             >
               <X className="w-5 h-5" />
@@ -113,32 +132,38 @@ export const Lightbox: React.FC<LightboxProps> = ({
           {/* Previous Button */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 sm:left-6 z-20 p-3 sm:p-4 bg-[#111319]/80 border border-white/15 text-[#CDD0D8] hover:text-[#F5F5F3] hover:border-[#D9383A] hover:bg-[#111319] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+            className="absolute left-2 sm:left-6 z-20 p-3 sm:p-4 bg-[#17191C]/90 border border-[#2A2D31] text-[#D8DAD8] hover:text-[#F2F2F0] hover:border-[#D9383A] hover:bg-[#1E2025] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
             aria-label="Previous image (Left Arrow)"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
-          {/* Active Image */}
+          {/* Active Image with Clean Cropping Container */}
           <motion.div
             key={currentImage.id}
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative max-w-full max-h-[78vh] flex items-center justify-center"
+            className={`relative max-w-full max-h-[78vh] flex items-center justify-center overflow-hidden border border-[#2A2D31] shadow-2xl bg-[#17191C] ${
+              isCustomCropped ? 'w-[90vw] md:w-[75vw] aspect-[16/10] max-h-[74vh]' : ''
+            }`}
           >
             <img
               src={currentImage.src}
               alt={`${currentImage.title} - ${currentImage.categoryLabel}`}
-              className="max-h-[76vh] max-w-[92vw] md:max-w-[85vw] object-contain border border-white/10 shadow-2xl bg-[#090A0D]"
+              className={
+                isCustomCropped
+                  ? `w-full h-full ${cropClass}`
+                  : 'max-h-[76vh] max-w-[92vw] md:max-w-[85vw] object-contain'
+              }
             />
           </motion.div>
 
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="absolute right-2 sm:right-6 z-20 p-3 sm:p-4 bg-[#111319]/80 border border-white/15 text-[#CDD0D8] hover:text-[#F5F5F3] hover:border-[#D9383A] hover:bg-[#111319] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+            className="absolute right-2 sm:right-6 z-20 p-3 sm:p-4 bg-[#17191C]/90 border border-[#2A2D31] text-[#D8DAD8] hover:text-[#F2F2F0] hover:border-[#D9383A] hover:bg-[#1E2025] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
             aria-label="Next image (Right Arrow)"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -147,7 +172,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
         {/* Bottom Status Bar */}
         <div
-          className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between pt-4 border-t border-white/10 text-[11px] font-mono text-[#626776]"
+          className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between pt-4 border-t border-[#2A2D31] text-[11px] font-mono text-[#72757C]"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center gap-2">

@@ -1,45 +1,26 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import type { Variants } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
 
 export const ProfileEditorial: React.FC = () => {
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  const quoteWords = ['Design.', 'Build.', 'Sustain.'];
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.25,
-        delayChildren: 0.4
-      }
-    }
-  };
-
-  const lineVariants: Variants = {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: 'easeOut'
-      }
-    }
-  };
+  const ethosSteps = [
+    { title: 'DESIGN', subtitle: 'Spatial Hierarchy & Synthesis' },
+    { title: 'BUILD', subtitle: 'Structural Rigor & Materiality' },
+    { title: 'SUSTAIN', subtitle: 'Environmental Longevity & GIS' }
+  ];
 
   return (
-    <div className="relative w-full overflow-hidden border border-white/10 bg-[#090A0D] mb-16 shadow-2xl">
+    <div className="relative w-full overflow-hidden border border-[#2A2D31] bg-[#111214] mb-16 shadow-2xl">
       {/* Editorial Spread Container */}
       <div className="relative w-full min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex items-center">
         
-        {/* Background Editorial Architectural Photograph (quotes.jpeg) */}
+        {/* Background Editorial Architectural Photograph (quotes.jpeg) - NOT cropped aggressively */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.img
-            initial={{ scale: 1.06, opacity: 0 }}
-            animate={{ scale: imgLoaded ? 1 : 1.06, opacity: imgLoaded ? 0.92 : 0 }}
+            initial={{ scale: 1.04, opacity: 0 }}
+            animate={{ scale: imgLoaded ? 1 : 1.04, opacity: imgLoaded ? 0.92 : 0 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
             src="/assets/portfolio/quotes.jpeg"
             alt="Ar. Nenmeli Jayaraman seated inside architectural interior showroom space"
@@ -47,17 +28,17 @@ export const ProfileEditorial: React.FC = () => {
             onLoad={() => setImgLoaded(true)}
           />
 
-          {/* Intentionally engineered gentle gradient: creates 35-45% negative text-safe zone on LEFT while preserving the person on the RIGHT */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#090A0D]/95 via-[#090A0D]/80 sm:via-[#090A0D]/65 to-transparent lg:w-[65%]" />
+          {/* Text-safe gentle gradient in dark grey theme */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#111214]/95 via-[#111214]/80 sm:via-[#111214]/65 to-transparent lg:w-[65%]" />
           
-          {/* Subtle top/bottom architectural vignettes for seamless blending */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D] via-transparent to-[#090A0D]/50" />
+          {/* Subtle top/bottom architectural vignettes */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111214] via-transparent to-[#111214]/50" />
           
           {/* Subtle architectural scanline overlay */}
           <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
         </div>
 
-        {/* Foreground Content: Text-Safe Editorial Zone (occupying ~38-45% width on Left) */}
+        {/* Foreground Content: Text-Safe Editorial Zone */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-16 sm:py-20">
           <div className="max-w-xl lg:max-w-2xl">
             
@@ -81,65 +62,72 @@ export const ProfileEditorial: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="space-y-1 mb-8"
             >
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F3] leading-[1.08] uppercase">
+              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F2F2F0] leading-[1.08] uppercase">
                 <span className="block">Ar. Nenmeli</span>
                 <span className="block text-[#D9383A]">Jayaraman</span>
               </h2>
               
-              <p className="font-mono text-xs sm:text-sm tracking-[0.25em] text-[#9AA0AC] uppercase pt-2">
-                Architecture &amp; City Planning
+              <p className="font-mono text-xs sm:text-sm tracking-[0.25em] text-[#A5A7AA] uppercase pt-2 font-semibold">
+                Architect • City Planner • Academician • Lawyer
               </p>
             </motion.div>
 
-            {/* V4 Exact Editorial Quote: "Design. Build. Sustain." */}
+            {/* Core Design Ethos: Vertical Sequence DESIGN ↓ BUILD ↓ SUSTAIN */}
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="pt-6 mt-6 border-t border-white/15 max-w-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="pt-6 mt-6 border-t border-[#2A2D31] max-w-lg"
             >
-              <div className="bg-[#111319]/85 backdrop-blur-md p-6 sm:p-7 border-l-2 border-[#D9383A] border-y border-r border-white/8 shadow-2xl">
-                <span className="text-[10px] font-mono text-[#D9383A] tracking-[0.25em] uppercase block mb-3 font-semibold">
+              <div className="bg-[#17191C]/90 backdrop-blur-md p-6 sm:p-7 border-l-2 border-[#D9383A] border-y border-r border-[#2A2D31] shadow-2xl">
+                <span className="text-[10px] font-mono text-[#D9383A] tracking-[0.25em] uppercase block mb-4 font-semibold">
                   CORE DESIGN ETHOS
                 </span>
                 
-                {/* Line-by-Line Staggered Reveal of "Design. Build. Sustain." */}
-                <div className="space-y-1 my-2">
-                  {quoteWords.map((word, wIdx) => (
-                    <motion.div
-                      key={word}
-                      variants={lineVariants}
-                      className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#F5F5F3]"
-                    >
-                      {wIdx === 0 ? (
-                        <span>&ldquo;{word}</span>
-                      ) : wIdx === quoteWords.length - 1 ? (
-                        <span>{word}&rdquo;</span>
-                      ) : (
-                        <span>{word}</span>
+                {/* Vertical Sequential Step-wise Presentation */}
+                <div className="space-y-2 my-2">
+                  {ethosSteps.map((step, sIdx) => (
+                    <React.Fragment key={step.title}>
+                      <div className="flex items-center justify-between py-1">
+                        <div>
+                          <span className="font-serif text-2xl sm:text-3xl font-bold text-[#F2F2F0] tracking-wide block">
+                            {step.title}
+                          </span>
+                          <span className="text-[10px] font-mono text-[#A5A7AA] uppercase tracking-wider">
+                            {step.subtitle}
+                          </span>
+                        </div>
+                        <span className="text-xs font-mono text-[#D9383A] font-semibold">0{sIdx + 1}</span>
+                      </div>
+
+                      {sIdx < ethosSteps.length - 1 && (
+                        <div className="flex items-center gap-2 text-[#D9383A] py-0.5">
+                          <ArrowDown className="w-3.5 h-3.5" />
+                          <span className="h-[1px] flex-grow bg-[#2A2D31]" />
+                        </div>
                       )}
-                    </motion.div>
+                    </React.Fragment>
                   ))}
                 </div>
 
-                <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono">
-                  <span className="text-[#CDD0D8]">Ar. Nenmeli Jayaraman</span>
-                  <span className="text-[#626776] text-[10px] uppercase">Principal Architect</span>
+                <div className="pt-4 mt-4 border-t border-[#2A2D31] flex items-center justify-between text-xs font-mono">
+                  <span className="text-[#D8DAD8]">Ar. Nenmeli Jayaraman</span>
+                  <span className="text-[#72757C] text-[10px] uppercase">Principal Practitioner</span>
                 </div>
               </div>
 
               {/* Architectural Credentials Badge Pill */}
-              <div className="mt-5 flex flex-wrap items-center gap-2.5 text-[11px] font-mono text-[#9AA0AC]">
-                <span className="px-2.5 py-1 bg-[#171A24]/90 border border-white/10 text-[#F5F5F3]">
+              <div className="mt-5 flex flex-wrap items-center gap-2.5 text-[11px] font-mono text-[#A5A7AA]">
+                <span className="px-2.5 py-1 bg-[#1E2025] border border-[#2A2D31] text-[#F2F2F0]">
                   IIT Kharagpur (MCP &apos;99)
                 </span>
-                <span className="px-2.5 py-1 bg-[#171A24]/90 border border-white/10 text-[#F5F5F3]">
+                <span className="px-2.5 py-1 bg-[#1E2025] border border-[#2A2D31] text-[#F2F2F0]">
                   B.Arch • LLB
                 </span>
-                <span className="px-2.5 py-1 bg-[#171A24]/90 border border-white/10 text-[#F5F5F3]">
+                <span className="px-2.5 py-1 bg-[#1E2025] border border-[#2A2D31] text-[#F2F2F0]">
                   COA: CA / 98 / 24015
                 </span>
-                <span className="px-2.5 py-1 bg-[#171A24]/90 border border-white/10 text-[#F5F5F3]">
+                <span className="px-2.5 py-1 bg-[#1E2025] border border-[#2A2D31] text-[#F2F2F0]">
                   Sri Janaki &amp; Associates
                 </span>
               </div>
@@ -149,7 +137,7 @@ export const ProfileEditorial: React.FC = () => {
         </div>
 
         {/* Ambient Bottom Right Spatial Identifier */}
-        <div className="absolute bottom-4 right-6 hidden md:flex items-center gap-3 text-[10px] font-mono text-white/50 tracking-widest uppercase z-10 pointer-events-none">
+        <div className="absolute bottom-4 right-6 hidden md:flex items-center gap-3 text-[10px] font-mono text-white/40 tracking-widest uppercase z-10 pointer-events-none">
           <span>PORTRAIT // SHOWROOM &amp; STUDIO ENVIRONMENT</span>
           <span>•</span>
           <span>CHENNAI</span>

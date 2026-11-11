@@ -62,7 +62,7 @@ export const ExpertisePage: React.FC = () => {
               >
                 <span className="w-6 h-[1.5px] bg-[#D9383A]" />
                 <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
-                  CHAPTER 02 // EXPERTISE &amp; DISCIPLINES
+                  EXPERTISE &amp; DISCIPLINES
                 </span>
               </motion.div>
 
@@ -81,7 +81,7 @@ export const ExpertisePage: React.FC = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-6 text-base sm:text-lg lg:text-xl text-[#D8DAD8] max-w-2xl font-light"
+                className="mt-6 text-base sm:text-lg lg:text-xl text-[#A5A7AA] max-w-2xl font-normal"
               >
                 Documented specializations spanning statutory master planning, private practice, AI technology, and architectural studio pedagogy.
               </motion.p>
@@ -100,8 +100,8 @@ export const ExpertisePage: React.FC = () => {
                   onClick={() => setActiveTab(tab.id as typeof activeTab)}
                   className={`px-3.5 py-2 text-xs font-mono tracking-wider uppercase transition-all duration-200 border ${
                     activeTab === tab.id
-                      ? 'bg-[#D9383A] text-[#F2F2F0] font-semibold border-[#D9383A]'
-                      : 'bg-[#17191C] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-white/25'
+                      ? 'bg-[#D9383A] text-[#F5F5F3] font-semibold border-[#D9383A]'
+                      : 'bg-[#1E2025] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-[#F2F2F0]/50'
                   }`}
                 >
                   {tab.label}
@@ -124,10 +124,10 @@ export const ExpertisePage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   onMouseEnter={() => setSelectedDomain(index)}
-                  className={`p-6 sm:p-8 border transition-all duration-300 relative group flex flex-col justify-between shadow-lg ${
+                  className={`p-6 sm:p-8 border transition-all duration-300 relative group flex flex-col justify-between shadow-sm ${
                     isHovered
-                      ? 'bg-[#1E2025] border-[#D9383A]/60 shadow-2xl'
-                      : 'bg-[#17191C] border-[#2A2D31] hover:border-white/20'
+                      ? 'bg-[#1E2025] border-[#D9383A] shadow-md'
+                      : 'bg-[#1E2025]/90 border-[#2A2D31] hover:border-[#F2F2F0]/45'
                   }`}
                 >
                   <div>
@@ -137,11 +137,11 @@ export const ExpertisePage: React.FC = () => {
                         <span className="font-mono text-xs text-[#D9383A] tracking-widest font-semibold">
                           /{item.number}
                         </span>
-                        <span className="text-[11px] font-mono tracking-widest text-[#A5A7AA] uppercase">
+                        <span className="text-[11px] font-mono tracking-widest text-[#A5A7AA] uppercase font-medium">
                           {item.category}
                         </span>
                       </div>
-                      <div className="w-8 h-8 rounded-none border border-[#2A2D31] bg-[#1E2025] flex items-center justify-center text-[#A5A7AA] group-hover:text-[#D9383A] group-hover:border-[#D9383A]/40 transition-colors">
+                      <div className="w-8 h-8 rounded-none border border-[#2A2D31] bg-[#111214] flex items-center justify-center text-[#A5A7AA] group-hover:text-[#D9383A] group-hover:border-[#D9383A]/50 transition-colors">
                         <Icon className="w-4 h-4" />
                       </div>
                     </div>
@@ -152,21 +152,21 @@ export const ExpertisePage: React.FC = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm text-[#D8DAD8] font-light leading-relaxed mb-5">
+                    <p className="text-sm text-[#A5A7AA] leading-relaxed mb-5">
                       {item.description}
                     </p>
 
                     {/* Relevant Photo Attachment (Rendered ONLY when non-null with precise crop) */}
                     {item.image && (
-                      <div className="mb-5 overflow-hidden border border-[#2A2D31] bg-[#111214] relative group/img aspect-[16/9]">
+                      <div className="mb-5 overflow-hidden border border-[#2A2D31] bg-[#17191C] relative group/img aspect-[16/9]">
                         <img
                           src={item.image}
                           alt={item.imageAlt || item.title}
                           loading="lazy"
-                          className={`w-full h-full ${cropClass} group-hover/img:scale-103 transition-transform duration-500 brightness-95 group-hover/img:brightness-105`}
+                          className={`w-full h-full ${cropClass} group-hover/img:scale-103 transition-transform duration-500`}
                         />
-                        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#111214]/95 via-[#111214]/50 to-transparent p-3 flex items-center justify-between pointer-events-none">
-                          <span className="text-[10px] font-mono tracking-wider text-[#D8DAD8] uppercase">
+                        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#111214]/90 via-[#111214]/35 to-transparent p-3 flex items-center justify-between pointer-events-none">
+                          <span className="text-[10px] font-mono tracking-wider text-[#F5F5F3] uppercase">
                             {item.title} Field Record
                           </span>
                           <span className="w-1.5 h-1.5 rounded-full bg-[#D9383A]" />
@@ -184,8 +184,8 @@ export const ExpertisePage: React.FC = () => {
                           key={i}
                           className={`text-[11px] font-mono px-2 py-0.5 border ${
                             isAiTopic
-                              ? 'bg-[#111214] border-[#D9383A]/40 text-[#F2F2F0]'
-                              : 'bg-[#1E2025] text-[#A5A7AA] border-[#2A2D31]'
+                              ? 'bg-[#111214] border-[#D9383A] text-[#F2F2F0] font-semibold'
+                              : 'bg-[#111214] text-[#A5A7AA] border-[#2A2D31]'
                           }`}
                         >
                           {isAiTopic ? <AiText text={topic} /> : topic}

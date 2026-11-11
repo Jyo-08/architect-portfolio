@@ -30,43 +30,43 @@ export const ExperienceTimeline: React.FC = () => {
         return {
           label: 'Master Planning / Consultancy',
           icon: Compass,
-          color: 'text-[#C2A87E] border-[#C2A87E]/30 bg-[#C2A87E]/10'
+          color: 'text-[#D9383A] border-[#D9383A]/35 bg-[#D9383A]/10'
         };
       case 'academic':
         return {
           label: 'Academic Leadership / Teaching',
           icon: GraduationCap,
-          color: 'text-[#9AA0AC] border-white/20 bg-white/5'
+          color: 'text-[#F2F2F0] border-[#2A2D31] bg-[#17191C]'
         };
       case 'practice':
         return {
           label: 'Architectural Practice',
           icon: Briefcase,
-          color: 'text-[#E2C799] border-[#E2C799]/30 bg-[#E2C799]/10'
+          color: 'text-[#F2F2F0] border-[#2A2D31] bg-[#111214]'
         };
       default:
         return {
           label: 'Professional Work',
           icon: Briefcase,
-          color: 'text-[#9AA0AC] border-white/10 bg-white/5'
+          color: 'text-[#A5A7AA] border-[#2A2D31] bg-[#111214]'
         };
     }
   };
 
   return (
-    <section id="work" className="relative py-28 sm:py-36 bg-[#090A0D] border-t border-white/10">
+    <section id="work" className="relative py-28 sm:py-36 bg-[#111214] border-t border-[#2A2D31]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header & Filter Controls */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
           <div>
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="w-6 h-[1px] bg-[#C2A87E]" />
-              <span className="text-xs font-mono tracking-[0.25em] text-[#C2A87E] uppercase">CAREER RECORD</span>
+              <span className="w-6 h-[1.5px] bg-[#D9383A]" />
+              <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">CAREER RECORD</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F5F3] leading-tight uppercase">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F2F2F0] leading-tight uppercase">
               Selected Professional Experience
             </h2>
-            <p className="mt-4 text-[#9AA0AC] max-w-2xl text-sm sm:text-base font-light">
+            <p className="mt-4 text-[#A5A7AA] max-w-2xl text-sm sm:text-base font-normal">
               Comprehensive chronological timeline of senior urban planning consultancies, institutional leadership roles, and architectural practice tenures.
             </p>
           </div>
@@ -84,8 +84,8 @@ export const ExperienceTimeline: React.FC = () => {
                 onClick={() => setActiveFilter(filter.id as ExperienceCategory)}
                 className={`px-4 py-2 text-xs font-mono tracking-wider uppercase transition-all duration-200 border ${
                   activeFilter === filter.id
-                    ? 'bg-[#C2A87E] text-[#090A0D] font-semibold border-[#C2A87E]'
-                    : 'bg-[#111319]/80 text-[#9AA0AC] border-white/10 hover:text-[#F5F5F3] hover:border-white/25'
+                    ? 'bg-[#D9383A] text-[#F5F5F3] font-semibold border-[#D9383A]'
+                    : 'bg-[#1E2025] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-[#F2F2F0]/50'
                 }`}
               >
                 {filter.label}
@@ -95,7 +95,7 @@ export const ExperienceTimeline: React.FC = () => {
         </div>
 
         {/* Timeline Items List */}
-        <div className="relative border-l border-white/15 ml-3 sm:ml-6 pl-6 sm:pl-10 space-y-8">
+        <div className="relative border-l border-[#2A2D31] ml-3 sm:ml-6 pl-6 sm:pl-10 space-y-8">
           {filteredExperiences.map((item) => {
             const isExpanded = expandedId === item.id;
             const badge = getCategoryBadge(item.category);
@@ -107,14 +107,14 @@ export const ExperienceTimeline: React.FC = () => {
                 className="relative group transition-all"
               >
                 {/* Timeline Dot Indicator */}
-                <div className="absolute -left-[31px] sm:-left-[47px] top-6 w-3 h-3 rounded-full bg-[#090A0D] border-2 border-[#C2A87E] group-hover:bg-[#C2A87E] transition-colors" />
+                <div className="absolute -left-[31px] sm:-left-[47px] top-6 w-3 h-3 rounded-full bg-[#111214] border-2 border-[#D9383A] group-hover:bg-[#D9383A] transition-colors" />
 
                 {/* Experience Card */}
                 <div
                   className={`p-6 sm:p-8 border transition-all duration-300 ${
                     isExpanded
-                      ? 'bg-[#12151D] border-[#C2A87E]/50 shadow-2xl'
-                      : 'bg-[#101218]/80 border-white/8 hover:border-white/20 hover:bg-[#12151D]/90'
+                      ? 'bg-[#1E2025] border-[#D9383A] shadow-md'
+                      : 'bg-[#1E2025]/90 border-[#2A2D31] hover:border-[#D9383A]/50 hover:bg-[#1E2025]'
                   }`}
                 >
                   {/* Top Metadata Row */}
@@ -125,13 +125,13 @@ export const ExperienceTimeline: React.FC = () => {
                         {badge.label}
                       </span>
                       {item.highlightBadge && (
-                        <span className="text-[11px] font-mono px-2.5 py-1 bg-[#1A1D27] text-[#CDD0D8] border border-white/10 uppercase">
+                        <span className="text-[11px] font-mono px-2.5 py-1 bg-[#111214] text-[#F2F2F0] border border-[#2A2D31] uppercase font-medium">
                           {item.highlightBadge}
                         </span>
                       )}
                     </div>
 
-                    <div className="flex items-center gap-2 text-xs font-mono text-[#C2A87E]">
+                    <div className="flex items-center gap-2 text-xs font-mono text-[#D9383A] font-semibold">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{item.period}</span>
                     </div>
@@ -140,26 +140,26 @@ export const ExperienceTimeline: React.FC = () => {
                   {/* Main Role & Institution */}
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 cursor-pointer" onClick={() => toggleExpand(item.id)}>
                     <div>
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#F5F5F3] group-hover:text-[#C2A87E] transition-colors">
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#F2F2F0] group-hover:text-[#D9383A] transition-colors">
                         {item.role}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1.5 text-sm sm:text-base text-[#CDD0D8]">
-                        <span className="font-medium text-[#F5F5F3]">{item.institution}</span>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1.5 text-sm sm:text-base text-[#A5A7AA]">
+                        <span className="font-medium text-[#F2F2F0]">{item.institution}</span>
                         {item.consultancyOrAffiliation && (
-                          <span className="text-xs font-mono text-[#9AA0AC]">
+                          <span className="text-xs font-mono text-[#A5A7AA]">
                             ({item.consultancyOrAffiliation})
                           </span>
                         )}
                         {item.location && (
-                          <span className="flex items-center gap-1 text-xs font-mono text-[#9AA0AC]">
-                            <MapPin className="w-3 h-3 text-[#C2A87E]" />
+                          <span className="flex items-center gap-1 text-xs font-mono text-[#A5A7AA]">
+                            <MapPin className="w-3 h-3 text-[#D9383A]" />
                             {item.location}
                           </span>
                         )}
                       </div>
 
                       {item.additionalResponsibility && (
-                        <div className="mt-2 text-xs font-mono text-[#C2A87E] bg-[#C2A87E]/10 border border-[#C2A87E]/20 px-3 py-1 inline-block">
+                        <div className="mt-2 text-xs font-mono text-[#D9383A] bg-[#D9383A]/10 border border-[#D9383A]/25 px-3 py-1 inline-block font-medium">
                           ★ {item.additionalResponsibility}
                         </div>
                       )}
@@ -170,7 +170,7 @@ export const ExperienceTimeline: React.FC = () => {
                         e.stopPropagation();
                         toggleExpand(item.id);
                       }}
-                      className="self-start p-2 border border-white/10 text-[#9AA0AC] hover:text-[#F5F5F3] hover:border-white/30 transition-colors focus:outline-none"
+                      className="self-start p-2 border border-[#2A2D31] bg-[#111214] text-[#A5A7AA] hover:text-[#F2F2F0] hover:border-[#F2F2F0]/50 transition-colors focus:outline-none"
                       aria-label="Toggle details"
                     >
                       {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -179,26 +179,26 @@ export const ExperienceTimeline: React.FC = () => {
 
                   {/* Expandable Key Responsibilities & Focus */}
                   {isExpanded && (
-                    <div className="mt-6 pt-6 border-t border-white/10 space-y-4 animate-fade-in">
-                      <h4 className="text-xs font-mono tracking-[0.2em] text-[#9AA0AC] uppercase">
+                    <div className="mt-6 pt-6 border-t border-[#2A2D31] space-y-4 animate-fade-in">
+                      <h4 className="text-xs font-mono tracking-[0.2em] text-[#A5A7AA] uppercase font-semibold">
                         Scope of Work &amp; Project Deliverables:
                       </h4>
                       <ul className="space-y-2.5">
                         {item.responsibilities.map((resp, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-sm text-[#CDD0D8] font-light leading-relaxed">
-                            <CheckCircle2 className="w-4 h-4 text-[#C2A87E] shrink-0 mt-0.5" />
+                          <li key={idx} className="flex items-start gap-3 text-sm text-[#F2F2F0] leading-relaxed">
+                            <CheckCircle2 className="w-4 h-4 text-[#D9383A] shrink-0 mt-0.5" />
                             <span>{resp}</span>
                           </li>
                         ))}
                       </ul>
 
                       {item.subjectsOrFocus && item.subjectsOrFocus.length > 0 && (
-                        <div className="pt-4 mt-4 border-t border-white/5 flex flex-wrap items-center gap-2">
-                          <span className="text-xs font-mono text-[#9AA0AC]">Key Focus:</span>
+                        <div className="pt-4 mt-4 border-t border-[#2A2D31]/60 flex flex-wrap items-center gap-2">
+                          <span className="text-xs font-mono text-[#A5A7AA]">Key Focus:</span>
                           {item.subjectsOrFocus.map((subject, sIdx) => (
                             <span
                               key={sIdx}
-                              className="text-[11px] font-mono px-2 py-0.5 bg-[#171A24] text-[#E2C799] border border-white/8"
+                              className="text-[11px] font-mono px-2 py-0.5 bg-[#111214] text-[#F2F2F0] border border-[#2A2D31]"
                             >
                               {subject}
                             </span>

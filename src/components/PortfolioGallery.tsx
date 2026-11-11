@@ -48,7 +48,7 @@ export const PortfolioGallery: React.FC = () => {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F2F2F0] uppercase tracking-tight">
             Visual Archive &amp; Field Records
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#A5A7AA] max-w-2xl font-light">
+          <p className="mt-3 text-sm sm:text-base text-[#A5A7AA] max-w-2xl font-normal">
             Documented photographs and technical architectural drawings spanning project execution, bespoke interior design, academic studio lectures, and on-site engineering supervision.
           </p>
         </div>
@@ -64,12 +64,12 @@ export const PortfolioGallery: React.FC = () => {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 text-xs font-mono tracking-wider uppercase transition-all duration-300 border flex items-center gap-2 ${
                   isActive
-                    ? 'bg-[#D9383A] text-[#F2F2F0] font-semibold border-[#D9383A] shadow-lg shadow-[#D9383A]/20'
-                    : 'bg-[#17191C] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-white/25'
+                    ? 'bg-[#D9383A] text-[#F5F5F3] font-semibold border-[#D9383A] shadow-md shadow-[#D9383A]/20'
+                    : 'bg-[#1E2025] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-[#F2F2F0]/50'
                 }`}
               >
                 <span>{cat.label}</span>
-                <span className={`text-[10px] ${isActive ? 'text-[#F2F2F0]' : 'text-[#72757C]'}`}>
+                <span className={`text-[10px] ${isActive ? 'text-[#F5F5F3]/90' : 'text-[#72757C]'}`}>
                   ({count})
                 </span>
               </button>
@@ -97,28 +97,28 @@ export const PortfolioGallery: React.FC = () => {
                 className="group cursor-pointer flex flex-col"
                 onClick={() => setLightboxIndex(index)}
               >
-                <div className="relative overflow-hidden bg-[#17191C] border border-[#2A2D31] group-hover:border-[#D9383A]/70 transition-all duration-500 shadow-xl flex flex-col h-full">
+                <div className="relative overflow-hidden bg-[#1E2025] border border-[#2A2D31] group-hover:border-[#D9383A] transition-all duration-500 shadow-md flex flex-col h-full">
                   {/* Stable Aspect Ratio Container */}
-                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#111214] flex items-center justify-center">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#17191C] flex items-center justify-center">
                     <img
                       src={img.src}
                       alt={`${img.title} — ${img.categoryLabel}`}
                       loading="lazy"
-                      className={`w-full h-full ${cropClass} group-hover:scale-104 transition-transform duration-700 brightness-95 group-hover:brightness-105`}
+                      className={`w-full h-full ${cropClass} group-hover:scale-104 transition-transform duration-700`}
                     />
 
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111214]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111214]/92 via-[#111214]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 pointer-events-none">
                       <div className="self-end">
-                        <span className="p-2 bg-[#111214]/80 text-[#D9383A] border border-[#2A2D31] flex items-center justify-center">
+                        <span className="p-2 bg-[#1E2025]/90 text-[#D9383A] border border-[#2A2D31] flex items-center justify-center">
                           <Eye className="w-4 h-4" />
                         </span>
                       </div>
                       <div>
-                        <span className="text-[10px] font-mono tracking-widest text-[#D9383A] uppercase block font-semibold">
+                        <span className="text-[10px] font-mono tracking-widest text-[#F5F5F3]/90 uppercase block font-semibold">
                           {img.category}
                         </span>
-                        <h4 className="font-serif text-base text-[#F2F2F0] font-medium mt-0.5">
+                        <h4 className="font-serif text-base text-[#F5F5F3] font-medium mt-0.5">
                           {img.title}
                         </h4>
                       </div>
@@ -126,12 +126,12 @@ export const PortfolioGallery: React.FC = () => {
                   </div>
 
                   {/* Caption Strip */}
-                  <div className="p-4 bg-[#17191C] border-t border-[#2A2D31] flex flex-col justify-between flex-grow">
+                  <div className="p-4 bg-[#1E2025] border-t border-[#2A2D31] flex flex-col justify-between flex-grow">
                     <div className="flex items-center justify-between text-xs font-mono mb-1">
                       <span className="text-[#D9383A] text-[10px] tracking-widest uppercase font-semibold">
                         {img.categoryLabel}
                       </span>
-                      <span className="text-[#72757C] text-[10px] uppercase">
+                      <span className="text-[#A5A7AA] text-[10px] uppercase">
                         /{String(index + 1).padStart(2, '0')}
                       </span>
                     </div>
@@ -147,7 +147,7 @@ export const PortfolioGallery: React.FC = () => {
       </motion.div>
 
       {/* Gallery Count Status */}
-      <div className="mt-8 pt-4 border-t border-[#2A2D31] flex items-center justify-between text-xs font-mono text-[#72757C]">
+      <div className="mt-8 pt-4 border-t border-[#2A2D31] flex items-center justify-between text-xs font-mono text-[#A5A7AA]">
         <div className="flex items-center gap-2">
           <Layers className="w-3.5 h-3.5 text-[#D9383A]" />
           <span>DISPLAYING {filteredImages.length} OF {galleryImages.length} PORTFOLIO ARCHIVES</span>

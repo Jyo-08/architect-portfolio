@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { GalleryImage } from '../data/galleryData';
@@ -77,19 +78,20 @@ export const Lightbox: React.FC<LightboxProps> = ({
     };
   }, [isOpen]);
 
-  if (!isOpen || !currentImage) return null;
+  if (!isOpen || !currentImage || typeof document === 'undefined') return null;
 
   const cropClass = getLightboxCropClass(currentImage.src);
   const isCustomCropped = cropClass !== 'object-contain';
 
-  return (
+  return createPortal(
     <AnimatePresence>
       <motion.div
+        key="lightbox-backdrop"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-50 bg-[#111214]/98 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-8 select-none"
+        className="fixed inset-0 z-[100] h-screen w-screen bg-[#111214]/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-8 select-none overflow-hidden"
         onClick={onClose}
       >
         {/* Top Header Bar */}
@@ -103,20 +105,20 @@ export const Lightbox: React.FC<LightboxProps> = ({
               <span className="text-xs font-mono text-[#D9383A] tracking-[0.2em] uppercase font-semibold">
                 {currentImage.categoryLabel}
               </span>
-              <span className="text-sm font-serif text-[#F2F2F0] font-medium">
+              <span className="text-sm font-serif text-[#F2F2F0] font-semibold">
                 {currentImage.title}
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-xs font-mono text-[#D8DAD8] tracking-widest">
+            <span className="text-xs font-mono text-[#F2F2F0] tracking-widest font-medium">
               {String((currentIndex ?? 0) + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
             </span>
 
             <button
               onClick={onClose}
-              className="p-2 border border-[#2A2D31] text-[#A5A7AA] hover:text-[#F2F2F0] hover:border-white/40 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] bg-[#17191C]"
+              className="p-2 border border-[#2A2D31] text-[#A5A7AA] hover:text-[#F2F2F0] hover:border-[#F2F2F0] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] bg-[#1E2025]"
               aria-label="Close fullscreen lightbox (Esc)"
             >
               <X className="w-5 h-5" />
@@ -126,13 +128,13 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
         {/* Center Main Image Stage */}
         <div
-          className="relative flex-1 flex items-center justify-center my-auto py-4 overflow-hidden"
+          className="relative flex-1 min-h-0 flex items-center justify-center my-auto py-4 overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Previous Button */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 sm:left-6 z-20 p-3 sm:p-4 bg-[#17191C]/90 border border-[#2A2D31] text-[#D8DAD8] hover:text-[#F2F2F0] hover:border-[#D9383A] hover:bg-[#1E2025] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+            className="absolute left-2 sm:left-6 z-20 p-3 sm:p-4 bg-[#1E2025]/95 border border-[#2A2D31] text-[#F2F2F0] hover:text-[#D9383A] hover:border-[#D9383A] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] shadow-md"
             aria-label="Previous image (Left Arrow)"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -145,7 +147,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className={`relative max-w-full max-h-[78vh] flex items-center justify-center overflow-hidden border border-[#2A2D31] shadow-2xl bg-[#17191C] ${
+            className={`relative max-w-full max-h-[78vh] flex items-center justify-center overflow-hidden border border-[#2A2D31] shadow-xl bg-[#17191C] ${
               isCustomCropped ? 'w-[90vw] md:w-[75vw] aspect-[16/10] max-h-[74vh]' : ''
             }`}
           >
@@ -163,7 +165,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="absolute right-2 sm:right-6 z-20 p-3 sm:p-4 bg-[#17191C]/90 border border-[#2A2D31] text-[#D8DAD8] hover:text-[#F2F2F0] hover:border-[#D9383A] hover:bg-[#1E2025] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+            className="absolute right-2 sm:right-6 z-20 p-3 sm:p-4 bg-[#1E2025]/95 border border-[#2A2D31] text-[#F2F2F0] hover:text-[#D9383A] hover:border-[#D9383A] transition-all rounded-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] shadow-md"
             aria-label="Next image (Right Arrow)"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -172,7 +174,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
         {/* Bottom Status Bar */}
         <div
-          className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between pt-4 border-t border-[#2A2D31] text-[11px] font-mono text-[#72757C]"
+          className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between pt-4 border-t border-[#2A2D31] text-[11px] font-mono text-[#A5A7AA]"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center gap-2">
@@ -186,6 +188,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           </div>
         </div>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };

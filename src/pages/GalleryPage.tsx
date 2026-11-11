@@ -50,7 +50,7 @@ export const GalleryPage: React.FC = () => {
             >
               <span className="w-6 h-[1.5px] bg-[#D9383A]" />
               <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
-                CHAPTER 05 // VISUAL ARCHIVE &amp; FIELD RECORDS
+                VISUAL ARCHIVE &amp; FIELD RECORDS
               </span>
             </motion.div>
 
@@ -70,7 +70,7 @@ export const GalleryPage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg lg:text-xl text-[#D8DAD8] font-light max-w-3xl leading-relaxed"
+              className="mt-6 text-base sm:text-lg lg:text-xl text-[#A5A7AA] font-normal max-w-3xl leading-relaxed"
             >
               Visual portfolio records covering project execution, interior design, academic studio lectures, and on-site structural inspections.
             </motion.p>
@@ -78,7 +78,7 @@ export const GalleryPage: React.FC = () => {
 
           {/* Editorial Category Filters Row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-6">
-            <div className="flex items-center gap-2 text-xs font-mono text-[#A5A7AA] uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#A5A7AA] uppercase tracking-wider font-medium">
               <Sparkles className="w-3.5 h-3.5 text-[#D9383A]" />
               <span>Filter Photographic Archives:</span>
             </div>
@@ -93,12 +93,12 @@ export const GalleryPage: React.FC = () => {
                     onClick={() => setActiveCategory(cat.id)}
                     className={`px-4 py-2 text-xs font-mono tracking-wider uppercase transition-all duration-300 border flex items-center gap-2 ${
                       isActive
-                        ? 'bg-[#D9383A] text-[#F2F2F0] font-semibold border-[#D9383A] shadow-lg shadow-[#D9383A]/20'
-                        : 'bg-[#17191C] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-white/25'
+                        ? 'bg-[#D9383A] text-[#F5F5F3] font-semibold border-[#D9383A] shadow-md shadow-[#D9383A]/20'
+                        : 'bg-[#1E2025] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-[#F2F2F0]/50'
                     }`}
                   >
                     <span>{cat.label}</span>
-                    <span className={`text-[10px] ${isActive ? 'text-[#F2F2F0]' : 'text-[#72757C]'}`}>
+                    <span className={`text-[10px] ${isActive ? 'text-[#F5F5F3]/90' : 'text-[#72757C]'}`}>
                       ({count})
                     </span>
                   </button>
@@ -127,28 +127,28 @@ export const GalleryPage: React.FC = () => {
                     className="group cursor-pointer flex flex-col"
                     onClick={() => setLightboxIndex(index)}
                   >
-                    <div className="relative overflow-hidden bg-[#17191C] border border-[#2A2D31] group-hover:border-[#D9383A]/70 transition-all duration-500 shadow-xl flex flex-col h-full">
+                    <div className="relative overflow-hidden bg-[#1E2025] border border-[#2A2D31] group-hover:border-[#D9383A] transition-all duration-500 shadow-md flex flex-col h-full">
                       {/* Stable Aspect Ratio Container */}
-                      <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#111214] flex items-center justify-center">
+                      <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#17191C] flex items-center justify-center">
                         <img
                           src={img.src}
                           alt={`${img.title} — ${img.categoryLabel}`}
                           loading="lazy"
-                          className={`w-full h-full ${cropClass} group-hover:scale-104 transition-transform duration-700 brightness-95 group-hover:brightness-105`}
+                          className={`w-full h-full ${cropClass} group-hover:scale-104 transition-transform duration-700`}
                         />
 
-                        {/* Subtle Dark Hover Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#111214]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 pointer-events-none">
+                        {/* Subtle Hover Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#111214]/92 via-[#111214]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 pointer-events-none">
                           <div className="self-end">
-                            <span className="p-2 bg-[#111214]/80 text-[#D9383A] border border-[#2A2D31] flex items-center justify-center">
+                            <span className="p-2 bg-[#1E2025]/90 text-[#D9383A] border border-[#2A2D31] flex items-center justify-center">
                               <Eye className="w-4 h-4" />
                             </span>
                           </div>
                           <div>
-                            <span className="text-[10px] font-mono tracking-widest text-[#D9383A] uppercase block font-semibold">
+                            <span className="text-[10px] font-mono tracking-widest text-[#F5F5F3]/90 uppercase block font-semibold">
                               {img.category}
                             </span>
-                            <h4 className="font-serif text-base text-[#F2F2F0] font-medium mt-0.5">
+                            <h4 className="font-serif text-base text-[#F5F5F3] font-medium mt-0.5">
                               {img.title}
                             </h4>
                           </div>
@@ -156,19 +156,19 @@ export const GalleryPage: React.FC = () => {
                       </div>
 
                       {/* Editorial Caption Strip - Clean & No Raw Filenames */}
-                      <div className="p-4 bg-[#17191C] border-t border-[#2A2D31] flex flex-col justify-between flex-grow">
+                      <div className="p-4 bg-[#1E2025] border-t border-[#2A2D31] flex flex-col justify-between flex-grow">
                         <div className="flex items-center justify-between text-xs font-mono mb-1">
                           <span className="text-[#D9383A] text-[10px] tracking-widest uppercase font-semibold">
                             {img.categoryLabel}
                           </span>
-                          <span className="text-[#72757C] text-[10px] uppercase">
+                          <span className="text-[#A5A7AA] text-[10px] uppercase">
                             /{String(index + 1).padStart(2, '0')}
                           </span>
                         </div>
                         <h4 className="font-serif text-sm font-semibold text-[#F2F2F0] group-hover:text-[#D9383A] transition-colors">
                           {img.title}
                         </h4>
-                        <p className="text-[11px] text-[#A5A7AA] font-light mt-1 line-clamp-1">
+                        <p className="text-[11px] text-[#A5A7AA] mt-1 line-clamp-1">
                           {img.caption}
                         </p>
                       </div>
@@ -180,7 +180,7 @@ export const GalleryPage: React.FC = () => {
           </motion.div>
 
           {/* Gallery Status Bar */}
-          <div className="mt-12 pt-6 border-t border-[#2A2D31] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#72757C]">
+          <div className="mt-12 pt-6 border-t border-[#2A2D31] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A5A7AA]">
             <div className="flex items-center gap-2">
               <Layers className="w-3.5 h-3.5 text-[#D9383A]" />
               <span>DISPLAYING {filteredImages.length} OF {galleryImages.length} PORTFOLIO ARCHIVES</span>

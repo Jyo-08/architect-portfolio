@@ -197,6 +197,14 @@ export const galleryImages: GalleryImage[] = [
     caption: 'Detailed architectural space plan with dimensional workstation grid, partition specifications, and circulation clearances',
     src: '/assets/portfolio/projects/WhatsApp%20Image%202026-11-02%20at%2017.28.47%20(3).jpeg'
   },
+  {
+    id: 'proj-chengalpattu-aerial',
+    category: 'PROJECTS',
+    categoryLabel: 'Urban & Regional Planning',
+    title: 'Chengalpattu Town & College Corridor — Aerial Context',
+    caption: 'Satellite spatial survey mapping urban fabric density, arterial highway alignment, railway corridor, and institutional campus land-use in Chengalpattu',
+    src: '/assets/portfolio/projects/chengalpattu_aerial.jpeg'
+  },
 
   // ==========================================
   // INTERIORS CATEGORY (4 VERIFIED IMAGES)

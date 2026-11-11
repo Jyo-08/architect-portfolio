@@ -27,7 +27,7 @@ export const CredentialsPage: React.FC = () => {
             >
               <span className="w-6 h-[1.5px] bg-[#D9383A]" />
               <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
-                CHAPTER 04 // CREDENTIALS &amp; GOVERNANCE
+                CREDENTIALS &amp; GOVERNANCE
               </span>
             </motion.div>
 
@@ -46,7 +46,7 @@ export const CredentialsPage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg lg:text-xl text-[#D8DAD8] max-w-3xl font-light"
+              className="mt-6 text-base sm:text-lg lg:text-xl text-[#A5A7AA] max-w-3xl font-normal"
             >
               Verified degrees from premier national institutions, statutory council licensures, and pedagogical honors.
             </motion.p>
@@ -72,14 +72,14 @@ export const CredentialsPage: React.FC = () => {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className="p-6 bg-[#17191C] border border-[#2A2D31] hover:border-[#D9383A]/40 transition-colors shadow-md"
+                    className="p-6 bg-[#1E2025] border border-[#2A2D31] hover:border-[#D9383A]/60 transition-colors shadow-sm"
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                       <span className="text-xs font-mono text-[#D9383A] tracking-wider uppercase font-semibold">
                         {edu.year}
                       </span>
                       {edu.gradeScore && (
-                        <span className="text-xs font-mono px-2 py-0.5 bg-[#1E2025] text-[#F2F2F0] border border-[#2A2D31]">
+                        <span className="text-xs font-mono px-2 py-0.5 bg-[#111214] text-[#F2F2F0] border border-[#2A2D31] font-medium">
                           {edu.gradeScore}
                         </span>
                       )}
@@ -88,11 +88,11 @@ export const CredentialsPage: React.FC = () => {
                     <h3 className="font-serif text-lg font-bold text-[#F2F2F0] mb-1">
                       {edu.degree}
                     </h3>
-                    <p className="text-sm text-[#D8DAD8] font-medium mb-3">
+                    <p className="text-sm text-[#F2F2F0] font-medium mb-3">
                       {edu.institution}
                     </p>
                     {edu.details && (
-                      <p className="text-xs text-[#A5A7AA] font-light leading-relaxed">
+                      <p className="text-xs text-[#A5A7AA] leading-relaxed">
                         {edu.details}
                       </p>
                     )}
@@ -121,7 +121,7 @@ export const CredentialsPage: React.FC = () => {
                       initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.2 + idx * 0.08 }}
-                      className="p-4 sm:p-5 bg-[#17191C] border border-[#2A2D31] flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-[#D9383A]/30 transition-colors shadow-md"
+                      className="p-4 sm:p-5 bg-[#1E2025] border border-[#2A2D31] flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-[#D9383A]/50 transition-colors shadow-sm"
                     >
                       <div>
                         <h3 className="font-serif text-sm sm:text-base font-bold text-[#F2F2F0]">
@@ -133,7 +133,7 @@ export const CredentialsPage: React.FC = () => {
                       </div>
 
                       <div className="flex items-center gap-2 self-start sm:self-center shrink-0">
-                        <span className="text-xs font-mono px-3 py-1.5 bg-[#1E2025] text-[#E2C799] border border-[#2A2D31] tracking-wider font-medium">
+                        <span className="text-xs font-mono px-3 py-1.5 bg-[#111214] text-[#D9383A] border border-[#2A2D31] tracking-wider font-semibold">
                           {reg.registrationNumber}
                         </span>
                         {reg.registrationNumber.includes('/') && (
@@ -144,7 +144,7 @@ export const CredentialsPage: React.FC = () => {
                             aria-label={`Copy ${reg.registrationNumber}`}
                           >
                             {copiedNumber === reg.registrationNumber ? (
-                              <Check className="w-3.5 h-3.5 text-emerald-400" />
+                              <Check className="w-3.5 h-3.5 text-[#D9383A]" />
                             ) : (
                               <Copy className="w-3.5 h-3.5" />
                             )}
@@ -174,7 +174,7 @@ export const CredentialsPage: React.FC = () => {
                       initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.4 + idx * 0.1 }}
-                      className="p-5 bg-[#17191C] border border-[#2A2D31] hover:border-[#D9383A]/30 transition-colors shadow-md"
+                      className="p-5 bg-[#1E2025] border border-[#2A2D31] hover:border-[#D9383A]/50 transition-colors shadow-sm"
                     >
                       <div className="flex items-center justify-between gap-2 mb-1">
                         <h3 className="font-serif text-base font-bold text-[#F2F2F0]">
@@ -187,7 +187,7 @@ export const CredentialsPage: React.FC = () => {
                       <p className="text-xs font-mono text-[#A5A7AA] mb-2">
                         Conferred by {rec.conferringBody}
                       </p>
-                      <p className="text-xs text-[#D8DAD8] font-light leading-relaxed">
+                      <p className="text-xs text-[#F2F2F0] leading-relaxed">
                         {rec.description}
                       </p>
                     </motion.div>

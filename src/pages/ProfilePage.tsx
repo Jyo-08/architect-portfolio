@@ -44,7 +44,7 @@ export const ProfilePage: React.FC = () => {
             >
               <span className="w-6 h-[1.5px] bg-[#D9383A]" />
               <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">
-                CHAPTER 06 // MONOGRAPH PROFILE
+                MONOGRAPH PROFILE
               </span>
             </motion.div>
 
@@ -64,9 +64,9 @@ export const ProfilePage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg lg:text-xl text-[#D8DAD8] font-light max-w-3xl leading-relaxed"
+              className="mt-6 text-base sm:text-lg lg:text-xl text-[#A5A7AA] font-normal max-w-3xl leading-relaxed"
             >
-              Ar. Nenmeli Jayaraman — Principal Architect, City Planner, Academician &amp; Lawyer.
+              Ar. N. Jayaraman — Principal Architect, City Planner, Academician &amp; Lawyer.
             </motion.p>
           </div>
 
@@ -80,33 +80,33 @@ export const ProfilePage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-7 space-y-6 text-[#D8DAD8] text-base sm:text-lg font-light leading-relaxed"
+              className="lg:col-span-7 space-y-6 text-[#A5A7AA] text-base sm:text-lg font-normal leading-relaxed"
             >
               <p>
-                <strong className="font-medium text-[#F2F2F0]">Ar. Nenmeli Jayaraman</strong> is an architect, city planner, academician, and lawyer whose career spans over two decades across architectural practice, statutory city planning, arbitration, and institutional leadership.
+                <strong className="font-semibold text-[#F2F2F0]">Ar. N. Jayaraman</strong> is an architect, city planner, academician, and lawyer whose career spans over two decades across architectural practice, statutory city planning, arbitration, and institutional leadership.
               </p>
               <p>
-                Holding a Postgraduate Degree in City Planning from <span className="text-[#F2F2F0] font-normal">IIT Kharagpur</span> (1999, CGPA 7.99), a Bachelor of Architecture from the <span className="text-[#F2F2F0] font-normal">University of Madras</span> (GATE qualified), and a <span className="text-[#F2F2F0] font-normal">Bachelor of Laws (LLB)</span>, his professional journey unites spatial design with statutory legal rigor and arbitration.
+                Holding a Postgraduate Degree in City Planning from <span className="text-[#F2F2F0] font-medium">IIT Kharagpur</span> (1999, CGPA 7.99), a Bachelor of Architecture from the <span className="text-[#F2F2F0] font-medium">University of Madras</span> (GATE qualified), and a <span className="text-[#F2F2F0] font-medium">Bachelor of Laws (LLB)</span>, his professional journey unites spatial design with statutory legal rigor and arbitration.
               </p>
               <p>
-                As Proprietor &amp; Chief Architect of <span className="text-[#F2F2F0] font-normal">Sri Janaki &amp; Associates</span> (Chengalpattu), he directs the planning, municipal sanctions, and construction of residential schemes, institutional layouts, and commercial developments across Tamil Nadu.
+                As Proprietor &amp; Chief Architect of <span className="text-[#F2F2F0] font-medium">Sri Janaki &amp; Associates</span> (Chengalpattu), he directs the planning, municipal sanctions, and construction of residential schemes, institutional layouts, and commercial developments across Tamil Nadu.
               </p>
               <p>
-                His regional consultancy includes serving as Senior Urban Planner for the <span className="text-[#F2F2F0] font-normal">JNPA Master Plan</span> (Navi Mumbai) with Voyants Solutions, formulating GIS master plans under <span className="text-[#F2F2F0] font-normal">AMRUT 2.0</span> for Tamil Nadu cities, and early research at <span className="text-[#F2F2F0] font-normal">ORG</span>.
+                His regional consultancy includes serving as Senior Urban Planner for the <span className="text-[#F2F2F0] font-medium">JNPA Master Plan</span> (Navi Mumbai) with Voyants Solutions, formulating GIS master plans under <span className="text-[#F2F2F0] font-medium">AMRUT 2.0</span> for Tamil Nadu cities, and early research at <span className="text-[#F2F2F0] font-medium">ORG</span>.
               </p>
               <p>
-                In academia, he has served as Principal In-Charge &amp; Professor at <span className="text-[#F2F2F0] font-normal">MIDAS</span>, Professor &amp; HOD at AMACE and Bharath University, Professor at <span className="text-[#F2F2F0] font-normal">Crescent School of Architecture</span>, and faculty at <span className="text-[#F2F2F0] font-normal">Salalah College of Technology (Oman)</span>.
+                In academia, he has served as Principal In-Charge &amp; Professor at <span className="text-[#F2F2F0] font-medium">MIDAS</span>, Professor &amp; HOD at AMACE and Bharath University, Professor at <span className="text-[#F2F2F0] font-medium">Crescent School of Architecture</span>, and faculty at <span className="text-[#F2F2F0] font-medium">Salalah College of Technology (Oman)</span>.
               </p>
 
               {/* Verified Practice Card Identity */}
-              <div className="pt-6 mt-8 border border-[#2A2D31] bg-[#17191C] p-6 space-y-3 shadow-lg">
+              <div className="pt-6 mt-8 border border-[#2A2D31] bg-[#1E2025] p-6 space-y-3 shadow-sm">
                 <div className="flex items-center justify-between pb-3 border-b border-[#2A2D31]">
                   <span className="text-xs font-mono text-[#D9383A] tracking-widest uppercase font-semibold">
                     PRACTICE IDENTITY // SRI JANAKI &amp; ASSOCIATES
                   </span>
-                  <span className="text-[11px] font-mono text-[#A5A7AA]">EST. CHENGALPATTU</span>
+                  <span className="text-[11px] font-mono text-[#A5A7AA] font-medium">EST. CHENGALPATTU</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-[#D8DAD8]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-[#F2F2F0]">
                   <div>
                     <span className="text-[#A5A7AA] block text-[10px] uppercase">Principal Architect, Planner &amp; Lawyer:</span>
                     <strong className="text-[#F2F2F0] text-sm font-serif">Ar. N. Jayaraman</strong>
@@ -114,13 +114,13 @@ export const ProfilePage: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[#A5A7AA] block text-[10px] uppercase">Registered Office:</span>
-                    <span className="text-[#F2F2F0]">No. 81 B, Rajaji Street, Chengalpattu, Tamil Nadu - 603001</span>
+                    <span className="text-[#F2F2F0] font-medium">No. 81 B, Rajaji Street, Chengalpattu, Tamil Nadu - 603001</span>
                   </div>
                 </div>
 
                 <div className="pt-3 border-t border-[#2A2D31] text-xs font-mono">
                   <strong className="text-[#F2F2F0] uppercase tracking-wider text-[11px] block">CONSULTANCY</strong>
-                  <span className="block text-[#D8DAD8]">Architecture · Planning · Arbitration · Legal Profession</span>
+                  <span className="block text-[#A5A7AA]">Architecture · Planning · Arbitration · Legal Profession</span>
                   <span className="block text-[#D9383A] text-[10px] tracking-widest uppercase font-semibold mt-0.5">ALL OVER INDIA &amp; ABROAD</span>
                 </div>
               </div>
@@ -138,9 +138,9 @@ export const ProfilePage: React.FC = () => {
                       initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
-                      className="p-5 bg-[#17191C] border border-[#2A2D31] hover:border-[#D9383A]/40 transition-colors shadow-md"
+                      className="p-5 bg-[#1E2025] border border-[#2A2D31] hover:border-[#D9383A]/60 transition-colors shadow-sm"
                     >
-                      <div className="w-8 h-8 flex items-center justify-center bg-[#1E2025] border border-[#2A2D31] text-[#D9383A] mb-3">
+                      <div className="w-8 h-8 flex items-center justify-center bg-[#111214] border border-[#2A2D31] text-[#D9383A] mb-3">
                         <Icon className="w-4 h-4" />
                       </div>
                       <h3 className="font-serif text-sm font-semibold text-[#F2F2F0] mb-1.5">
@@ -155,7 +155,7 @@ export const ProfilePage: React.FC = () => {
               </div>
 
               {/* Technical Drawing Document Record */}
-              <div className="border border-[#2A2D31] bg-[#17191C] p-6 space-y-4 shadow-lg">
+              <div className="border border-[#2A2D31] bg-[#1E2025] p-6 space-y-4 shadow-sm">
                 <div className="flex items-center gap-2 text-xs font-mono text-[#D9383A] uppercase tracking-widest font-semibold">
                   <FileText className="w-4 h-4 text-[#D9383A]" />
                   <span>Technical Sanction Record</span>
@@ -167,7 +167,7 @@ export const ProfilePage: React.FC = () => {
                   Municipal sanctioned architectural drawings signed under Sri Janaki &amp; Associates by Ar. N. Jayaraman (Chengalpattu District).
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-[#2A2D31]/60 text-[11px] font-mono text-[#D8DAD8]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-[#2A2D31]/70 text-[11px] font-mono text-[#F2F2F0]">
                   <div className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#D9383A]" />
                     <span>Ground &amp; First Floor Plans</span>

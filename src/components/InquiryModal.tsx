@@ -69,13 +69,13 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl bg-[#17191C] border border-[#2A2D31] p-6 sm:p-10 shadow-2xl select-text"
+        className="relative w-full max-w-2xl bg-[#1E2025] border border-[#2A2D31] p-6 sm:p-10 shadow-2xl select-text"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 text-[#A5A7AA] hover:text-[#F2F2F0] border border-[#2A2D31] hover:border-white/30 transition-colors focus:outline-none bg-[#1E2025]"
+          className="absolute top-6 right-6 p-2 text-[#A5A7AA] hover:text-[#F2F2F0] border border-[#2A2D31] hover:border-[#F2F2F0]/50 transition-colors focus:outline-none bg-[#111214]"
           aria-label="Close inquiry dialog"
         >
           <X className="w-5 h-5" />
@@ -92,36 +92,36 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#F2F2F0] uppercase">
             Initiate Professional Inquiry
           </h3>
-          <p className="mt-2 text-xs sm:text-sm text-[#A5A7AA] font-light">
+          <p className="mt-2 text-xs sm:text-sm text-[#A5A7AA]">
             Engage Ar. N. Jayaraman for City Master Planning, AMRUT / Port consultancy, Architectural Projects, Arbitration, or Academic Advisory.
           </p>
         </div>
 
         {submitted ? (
           <div className="py-10 text-center space-y-4">
-            <div className="w-12 h-12 mx-auto bg-[#D9383A]/20 text-[#D9383A] border border-[#D9383A]/40 flex items-center justify-center">
+            <div className="w-12 h-12 mx-auto bg-[#D9383A]/15 text-[#D9383A] border border-[#D9383A]/40 flex items-center justify-center">
               <Check className="w-6 h-6" />
             </div>
             <h4 className="font-serif text-xl font-bold text-[#F2F2F0]">
               Inquiry Draft Prepared
             </h4>
-            <p className="text-xs sm:text-sm text-[#D8DAD8] max-w-md mx-auto font-light">
+            <p className="text-xs sm:text-sm text-[#A5A7AA] max-w-md mx-auto">
               Your default email client has been launched with the structured inquiry draft. You can also directly reach out at the address below.
             </p>
             <div className="pt-4 flex items-center justify-center gap-3">
               <button
                 onClick={handleCopyEmail}
-                className="px-4 py-2 bg-[#1E2025] border border-[#2A2D31] text-xs font-mono text-[#F2F2F0] flex items-center gap-2"
+                className="px-4 py-2 bg-[#111214] border border-[#2A2D31] text-xs font-mono text-[#F2F2F0] flex items-center gap-2"
               >
                 <Mail className="w-3.5 h-3.5 text-[#D9383A]" />
                 <span>jesnenmeli@gmail.com</span>
-                {copiedEmail ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                {copiedEmail ? <Check className="w-3 h-3 text-[#D9383A]" /> : <Copy className="w-3 h-3" />}
               </button>
             </div>
             <div className="pt-6">
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 bg-[#D9383A] text-[#F2F2F0] text-xs font-mono tracking-widest uppercase font-semibold"
+                className="px-6 py-2.5 bg-[#D9383A] text-[#F5F5F3] text-xs font-mono tracking-widest uppercase font-semibold"
               >
                 Close Window
               </button>
@@ -131,7 +131,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5">
+                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5 font-medium">
                   Full Name *
                 </label>
                 <input
@@ -145,7 +145,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
               </div>
 
               <div>
-                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5">
+                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5 font-medium">
                   Email Address *
                 </label>
                 <input
@@ -161,7 +161,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5">
+                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5 font-medium">
                   Organization / Authority
                 </label>
                 <input
@@ -174,7 +174,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
               </div>
 
               <div>
-                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5">
+                <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5 font-medium">
                   Inquiry Nature
                 </label>
                 <select
@@ -193,7 +193,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5">
+              <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A5A7AA] mb-1.5 font-medium">
                 Scope Summary / Message *
               </label>
               <textarea
@@ -214,12 +214,12 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose }) =
               >
                 <Mail className="w-3.5 h-3.5 text-[#D9383A]" />
                 <span>Copy jesnenmeli@gmail.com</span>
-                {copiedEmail && <span className="text-emerald-400 text-[10px]">(Copied!)</span>}
+                {copiedEmail && <span className="text-[#F2F2F0] text-[10px]">(Copied!)</span>}
               </button>
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-6 py-3 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F2F2F0] text-xs font-mono tracking-[0.2em] uppercase font-semibold flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#D9383A]/20"
+                className="w-full sm:w-auto px-6 py-3 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F5F5F3] text-xs font-mono tracking-[0.2em] uppercase font-semibold flex items-center justify-center gap-2 transition-colors shadow-md shadow-[#D9383A]/20"
               >
                 <span>Send via Mail Client</span>
                 <Send className="w-3.5 h-3.5" />

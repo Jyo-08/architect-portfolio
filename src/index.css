@@ -12,8 +12,8 @@
   --color-brand-surface-light: #26292F;
   --color-brand-border: #2A2D31;
   --color-brand-border-strong: rgba(255, 255, 255, 0.18);
-  --color-brand-accent: #C2A87E;
-  --color-brand-accent-hover: #D8BF96;
+  --color-brand-accent: #F2F2F0;
+  --color-brand-accent-hover: #FFFFFF;
   --color-brand-red: #D9383A;
   --color-brand-red-hover: #E64A4D;
   --color-brand-red-glow: rgba(217, 56, 58, 0.18);
@@ -131,17 +131,17 @@
 .animate-marquee-ltr {
   display: flex;
   width: max-content;
-  animation: marquee-ltr 65s linear infinite;
+  animation: marquee-ltr 80s linear infinite;
   will-change: transform;
 }
 
 /* Subtle glow utility */
 .glow-accent {
-  box-shadow: 0 0 30px rgba(194, 168, 126, 0.12);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.08);
 }
 
 .glow-red {
-  box-shadow: 0 0 35px rgba(217, 56, 58, 0.2);
+  box-shadow: 0 0 32px rgba(217, 56, 58, 0.18);
 }
 
 /* Keyframes */
@@ -170,6 +170,11 @@
 
 /* Print and Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  .animate-marquee-ltr {
+    animation: none !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

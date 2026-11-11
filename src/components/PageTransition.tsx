@@ -12,13 +12,11 @@ export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const variants: Variants = {
     initial: {
       opacity: shouldReduceMotion ? 1 : 0,
-      y: shouldReduceMotion ? 0 : 16,
-      filter: shouldReduceMotion ? 'none' : 'blur(4px)'
+      y: shouldReduceMotion ? 0 : 16
     },
     animate: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
         duration: shouldReduceMotion ? 0.05 : 0.5,
         ease: 'easeOut'
@@ -27,7 +25,6 @@ export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
     exit: {
       opacity: 0,
       y: shouldReduceMotion ? 0 : -12,
-      filter: shouldReduceMotion ? 'none' : 'blur(2px)',
       transition: {
         duration: shouldReduceMotion ? 0.05 : 0.25,
         ease: 'easeIn'

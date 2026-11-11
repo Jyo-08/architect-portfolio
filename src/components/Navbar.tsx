@@ -63,37 +63,37 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             : 'bg-gradient-to-b from-[#111214]/90 via-[#111214]/50 to-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-2 sm:gap-4">
           {/* Brand Logo with Official Identity Logo (Preserved Exactly) */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A]"
+            className="group flex items-center gap-2 sm:gap-3 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] shrink-0 min-w-0"
           >
             <img
               src="/images/official_logo.png"
               alt="Ar. Nenmeli Jayaraman Official Practice Logo — Creator of Your Dreams"
-              className="w-8 h-8 sm:w-9 sm:h-9 object-contain group-hover:scale-105 transition-transform duration-300 shrink-0"
+              className="w-7 h-7 sm:w-9 sm:h-9 object-contain group-hover:scale-105 transition-transform duration-300 shrink-0"
             />
-            <div className="flex flex-col">
-              <span className="font-serif text-base sm:text-lg lg:text-xl font-bold tracking-[0.18em] text-[#F2F2F0] group-hover:text-[#F2F2F0] transition-colors flex items-center">
-                <span className="text-[#D9383A] inline-block mr-0.5">AR.</span> N. JAYARAMAN
+            <div className="flex flex-col min-w-0">
+              <span className="font-serif text-[13px] sm:text-lg lg:text-xl font-bold tracking-[0.1em] sm:tracking-[0.18em] text-[#F2F2F0] group-hover:text-[#F2F2F0] transition-colors flex items-center whitespace-nowrap">
+                <span className="text-[#D9383A] inline-block mr-1">AR.</span> N. JAYARAMAN
               </span>
-              <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-[#A5A7AA] uppercase font-mono group-hover:text-[#D8DAD8] transition-colors">
-                Architect &amp; City Planner
+              <span className="text-[8px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.22em] text-[#A5A7AA] uppercase font-mono group-hover:text-[#D8DAD8] transition-colors whitespace-nowrap">
+                Sri Janaki &amp; Associates
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-7 lg:space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`text-xs font-mono tracking-[0.2em] uppercase transition-all relative py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] ${
+                  className={`text-xs font-mono tracking-[0.14em] xl:tracking-[0.2em] uppercase transition-all relative py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9383A] whitespace-nowrap ${
                     isActive
                       ? 'text-[#F2F2F0] font-semibold'
                       : 'text-[#A5A7AA] hover:text-[#F2F2F0]'
@@ -114,18 +114,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             {/* Quick Inquire Action Button */}
             <button
               onClick={onOpenInquiry}
-              className="ml-2 px-4 py-2 border border-[#D9383A]/60 text-[#F2F2F0] hover:bg-[#D9383A] hover:text-[#F2F2F0] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9383A] bg-[#17191C]/60"
+              className="group ml-2 px-4 py-2 border border-[#D9383A]/60 text-[#F2F2F0] hover:bg-[#E64A4D] hover:text-[#F2F2F0] text-xs font-mono tracking-[0.15em] uppercase transition-all duration-200 flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9383A] bg-[#17191C]/60 font-medium whitespace-nowrap"
             >
               <span>INQUIRE</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#D9383A] group-hover:text-[#F2F2F0]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#D9383A] group-hover:text-[#F2F2F0] transition-colors" />
             </button>
           </nav>
 
           {/* Mobile Menu Toggle Button */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex md:hidden items-center gap-1.5 shrink-0">
             <button
               onClick={onOpenInquiry}
-              className="px-3 py-1.5 border border-[#D9383A]/60 text-[#F2F2F0] text-[11px] font-mono tracking-widest uppercase bg-[#17191C]/80"
+              className="px-2.5 py-1.5 border border-[#D9383A]/60 text-[#F2F2F0] text-[10px] font-mono tracking-widest uppercase bg-[#17191C]/80 font-medium"
             >
               INQUIRE
             </button>
@@ -153,35 +153,35 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
           >
             <div className="border-b border-[#2A2D31] pb-4 mb-8 flex items-center justify-between">
               <span className="text-xs font-mono text-[#D9383A] tracking-[0.25em] uppercase font-semibold">
-                MONOGRAPH DIRECTORY
+                NAVIGATION DIRECTORY
               </span>
-              <span className="text-[10px] font-mono text-[#72757C]">ESC TO CLOSE</span>
+              <span className="text-[10px] font-mono text-[#A5A7AA]">ESC TO CLOSE</span>
             </div>
 
             <div className="flex flex-col space-y-4">
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-[#2A2D31]/50 transition-colors ${
-                  location.pathname === '/' ? 'text-[#D9383A]' : 'text-[#F2F2F0] hover:text-[#D9383A]'
+                className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-[#2A2D31]/70 transition-colors ${
+                  location.pathname === '/' ? 'text-[#D9383A] font-bold' : 'text-[#F2F2F0] hover:text-[#D9383A]'
                 }`}
               >
                 <span>HOME / OVERVIEW</span>
-                <span className="text-xs font-mono text-[#72757C]">00</span>
+                <ArrowUpRight className="w-4 h-4 text-[#D9383A]" />
               </Link>
-              {navLinks.map((link, idx) => {
+              {navLinks.map((link) => {
                 const isActive = location.pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     to={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-[#2A2D31]/50 transition-colors ${
-                      isActive ? 'text-[#D9383A]' : 'text-[#F2F2F0] hover:text-[#D9383A]'
+                    className={`flex items-center justify-between text-2xl font-serif tracking-wider py-3 border-b border-[#2A2D31]/70 transition-colors ${
+                      isActive ? 'text-[#D9383A] font-bold' : 'text-[#F2F2F0] hover:text-[#D9383A]'
                     }`}
                   >
                     <span>{link.label}</span>
-                    <span className="text-xs font-mono text-[#72757C]">0{idx + 1}</span>
+                    <ArrowUpRight className="w-4 h-4 text-[#A5A7AA]" />
                   </Link>
                 );
               })}
@@ -189,7 +189,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
 
             <div className="mt-auto pb-12 pt-8">
               <p className="text-xs font-mono text-[#A5A7AA] mb-4">
-                Ar. Nenmeli Jayaraman<br />
+                Sri Janaki &amp; Associates — Ar. N. Jayaraman<br />
                 IIT Kharagpur (MCP &apos;99) • B.Arch • LLB • COA Architect
               </p>
               <button
@@ -197,7 +197,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                   setMobileMenuOpen(false);
                   onOpenInquiry();
                 }}
-                className="w-full py-4 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F2F2F0] font-mono text-xs tracking-[0.2em] uppercase font-bold text-center flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#D9383A]/20"
+                className="w-full py-4 bg-[#D9383A] hover:bg-[#E64A4D] text-[#F5F5F3] font-mono text-xs tracking-[0.2em] uppercase font-bold text-center flex items-center justify-center gap-2 transition-colors shadow-md"
               >
                 <span>Initiate Consultation</span>
                 <ArrowUpRight className="w-4 h-4" />

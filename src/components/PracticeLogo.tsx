@@ -26,30 +26,30 @@ export const PracticeLogo: React.FC<PracticeLogoProps> = ({
         {/* Outer Diamond Rhombus */}
         <polygon
           points="50,4 96,50 50,96 4,50"
-          stroke="#22C55E"
+          stroke="#F2F2F0"
           strokeWidth="3.5"
-          fill="#0B0D12"
+          fill="#1E2025"
           className="transition-colors duration-300"
         />
 
         {/* Inner Precision Offset Diamond Guideline */}
         <polygon
           points="50,12 88,50 50,88 12,50"
-          stroke="#22C55E"
+          stroke="#F2F2F0"
           strokeWidth="1"
           strokeDasharray="2 2"
           opacity="0.4"
         />
 
-        {/* Foundation Horizontal Base Beam (Green) */}
+        {/* Foundation Horizontal Base Beam */}
         <rect
           x="28"
           y="66"
           width="44"
           height="12"
           rx="1"
-          fill="#0D1117"
-          stroke="#22C55E"
+          fill="#111214"
+          stroke="#F2F2F0"
           strokeWidth="2.5"
         />
 
@@ -60,7 +60,7 @@ export const PracticeLogo: React.FC<PracticeLogoProps> = ({
           width="12"
           height="48"
           fill="#D9383A"
-          stroke="#22C55E"
+          stroke="#F2F2F0"
           strokeWidth="2"
         />
 
@@ -83,13 +83,13 @@ export const PracticeLogo: React.FC<PracticeLogoProps> = ({
           height="5"
           rx="1"
           fill="#D9383A"
-          stroke="#22C55E"
+          stroke="#F2F2F0"
           strokeWidth="1.5"
         />
 
         {/* Quadrant Accent Dots */}
-        <circle cx="28" cy="46" r="1.5" fill="#22C55E" />
-        <circle cx="72" cy="46" r="1.5" fill="#22C55E" />
+        <circle cx="28" cy="46" r="1.5" fill="#F2F2F0" />
+        <circle cx="72" cy="46" r="1.5" fill="#F2F2F0" />
       </svg>
     </div>
   );

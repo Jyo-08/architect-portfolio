@@ -36,19 +36,19 @@ export const Expertise: React.FC = () => {
     : expertiseData.filter((item) => item.category === activeTab);
 
   return (
-    <section id="expertise" className="relative py-28 sm:py-36 bg-[#0B0D12] border-t border-white/10">
+    <section id="expertise" className="relative py-28 sm:py-36 bg-[#111214] border-t border-[#2A2D31]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="w-6 h-[1px] bg-[#C2A87E]" />
-              <span className="text-xs font-mono tracking-[0.25em] text-[#C2A87E] uppercase">EXPERTISE</span>
+              <span className="w-6 h-[1.5px] bg-[#D9383A]" />
+              <span className="text-xs font-mono tracking-[0.25em] text-[#D9383A] uppercase font-semibold">EXPERTISE</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F5F3] leading-tight uppercase">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#F2F2F0] leading-tight uppercase">
               Areas of Practice &amp; Academic Focus
             </h2>
-            <p className="mt-4 text-[#9AA0AC] max-w-2xl text-sm sm:text-base font-light">
+            <p className="mt-4 text-[#A5A7AA] max-w-2xl text-sm sm:text-base font-normal">
               Disciplines documented across statutory master planning consultancy, private practice, and architectural teaching curricula.
             </p>
           </div>
@@ -66,8 +66,8 @@ export const Expertise: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
                 className={`px-3.5 py-1.5 text-xs font-mono tracking-wider uppercase transition-all duration-200 border ${
                   activeTab === tab.id
-                    ? 'bg-[#C2A87E] text-[#090A0D] font-semibold border-[#C2A87E]'
-                    : 'bg-[#111319]/60 text-[#9AA0AC] border-white/10 hover:text-[#F5F5F3] hover:border-white/25'
+                    ? 'bg-[#D9383A] text-[#F5F5F3] font-semibold border-[#D9383A]'
+                    : 'bg-[#1E2025] text-[#A5A7AA] border-[#2A2D31] hover:text-[#F2F2F0] hover:border-[#F2F2F0]/50'
                 }`}
               >
                 {tab.label}
@@ -77,27 +77,27 @@ export const Expertise: React.FC = () => {
         </div>
 
         {/* Master Planning Featured Banner */}
-        <div className="relative mb-16 border border-white/10 bg-[#111319] overflow-hidden">
+        <div className="relative mb-16 border border-[#2A2D31] bg-[#1E2025] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
             <div className="lg:col-span-7 p-8 sm:p-12 space-y-4">
-              <div className="flex items-center gap-3 text-xs font-mono text-[#C2A87E] tracking-widest uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#C2A87E]" />
+              <div className="flex items-center gap-3 text-xs font-mono text-[#D9383A] tracking-widest uppercase font-semibold">
+                <span className="w-2 h-2 rounded-full bg-[#D9383A]" />
                 <span>CORE SPECIALIZATION</span>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F5F3]">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#F2F2F0]">
                 GIS-Driven Regional &amp; City Master Plans
               </h3>
-              <p className="text-sm sm:text-base text-[#CDD0D8] font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-[#A5A7AA] leading-relaxed">
                 Integrating multi-layered spatial data, statutory land-use zoning, development control regulations (DCPR), and infrastructure frameworks for statutory urban authorities.
               </p>
               <div className="pt-2 flex flex-wrap gap-3">
-                <span className="px-2.5 py-1 bg-[#1A1D26] border border-white/10 text-xs font-mono text-[#9AA0AC]">
+                <span className="px-2.5 py-1 bg-[#111214] border border-[#2A2D31] text-xs font-mono text-[#F2F2F0]">
                   AMRUT 2.0 Sub-Scheme
                 </span>
-                <span className="px-2.5 py-1 bg-[#1A1D26] border border-white/10 text-xs font-mono text-[#9AA0AC]">
+                <span className="px-2.5 py-1 bg-[#111214] border border-[#2A2D31] text-xs font-mono text-[#F2F2F0]">
                   JNPA Master Plan (Navi Mumbai)
                 </span>
-                <span className="px-2.5 py-1 bg-[#1A1D26] border border-white/10 text-xs font-mono text-[#9AA0AC]">
+                <span className="px-2.5 py-1 bg-[#111214] border border-[#2A2D31] text-xs font-mono text-[#F2F2F0]">
                   DTCP &amp; Municipal Bylaws
                 </span>
               </div>
@@ -106,9 +106,9 @@ export const Expertise: React.FC = () => {
               <img
                 src="/images/urban-planning.jpg"
                 alt="Urban planning diagram and GIS zoning schematic"
-                className="w-full h-full object-cover object-center grayscale contrast-125 hover:scale-105 transition-transform duration-700 opacity-80"
+                className="w-full h-full object-cover object-center grayscale contrast-125 hover:scale-105 transition-transform duration-700 opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#111319] via-transparent to-transparent hidden lg:block" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1E2025] via-transparent to-transparent hidden lg:block" />
             </div>
           </div>
         </div>
@@ -125,37 +125,37 @@ export const Expertise: React.FC = () => {
                 onMouseEnter={() => setSelectedDomain(index)}
                 className={`p-6 sm:p-8 border transition-all duration-300 relative group cursor-pointer ${
                   isHovered
-                    ? 'bg-[#141720] border-[#C2A87E]/60 shadow-xl'
-                    : 'bg-[#111319]/70 border-white/8 hover:border-white/20'
+                    ? 'bg-[#1E2025] border-[#D9383A] shadow-md'
+                    : 'bg-[#1E2025]/90 border-[#2A2D31] hover:border-[#F2F2F0]/50'
                 }`}
               >
                 {/* Header Row: Number + Category Tag + Icon */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-[#C2A87E] tracking-widest font-semibold">
+                    <span className="font-mono text-xs text-[#D9383A] tracking-widest font-semibold">
                       /{item.number}
                     </span>
-                    <span className="text-[11px] font-mono tracking-widest text-[#9AA0AC] uppercase">
+                    <span className="text-[11px] font-mono tracking-widest text-[#A5A7AA] uppercase">
                       {item.category}
                     </span>
                   </div>
-                  <div className="w-8 h-8 rounded-none border border-white/10 bg-[#1A1D26] flex items-center justify-center text-[#9AA0AC] group-hover:text-[#C2A87E] group-hover:border-[#C2A87E]/40 transition-colors">
+                  <div className="w-8 h-8 rounded-none border border-[#2A2D31] bg-[#111214] flex items-center justify-center text-[#A5A7AA] group-hover:text-[#D9383A] group-hover:border-[#D9383A]/50 transition-colors">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-xl font-bold text-[#F5F5F3] mb-3 group-hover:text-[#C2A87E] transition-colors">
+                <h3 className="font-serif text-xl font-bold text-[#F2F2F0] mb-3 group-hover:text-[#D9383A] transition-colors">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-[#CDD0D8] font-light leading-relaxed mb-6">
+                <p className="text-sm text-[#A5A7AA] leading-relaxed mb-6">
                   {item.description}
                 </p>
 
                 {/* Key Subtopics / Syllabus Topics */}
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-white/8">
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-[#2A2D31]/60">
                   {item.keyTopics.map((topic, i) => {
                     const isAiTopic = topic.includes('AI IN') || topic.includes('AI in');
                     return (
@@ -163,8 +163,8 @@ export const Expertise: React.FC = () => {
                         key={i}
                         className={`text-[11px] font-mono px-2 py-0.5 border ${
                           isAiTopic
-                            ? 'bg-[#111214] text-[#F2F2F0] border-[#D9383A]/40'
-                            : 'bg-[#1A1D26] text-[#9AA0AC] border-white/5'
+                            ? 'bg-[#111214] text-[#F2F2F0] border-[#D9383A] font-semibold'
+                            : 'bg-[#111214] text-[#A5A7AA] border-[#2A2D31]'
                         }`}
                       >
                         {isAiTopic ? <AiText text={topic} /> : topic}
